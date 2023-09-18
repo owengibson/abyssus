@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlackWhiteTiles_1
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -1052855965, guid: 6705b84ebe9a43b468a5cf9248861d51, type: 3}
-  m_Color: {r: 0.21698111, g: 0.1250612, b: 0, a: 1}
+  m_Color: {r: 0.1882353, g: 0.10399878, b: 0.03529412, a: 1}
   m_Transform:
     e00: 1
     e01: 0
