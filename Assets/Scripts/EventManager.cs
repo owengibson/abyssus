@@ -8,5 +8,11 @@ namespace CaveGame
     public class EventManager : MonoBehaviour
     {
         public static Action OnMapGenerated;
+        public static Action<Item> OnItemClicked;
+        public static Action OnItemAddedToInventory;
+
+
+        /*public delegate Item ItemReturnDelegate();
+        public static ItemReturnDelegate OnItemClicked;*/
     }
 }
