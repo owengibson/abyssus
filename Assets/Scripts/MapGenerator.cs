@@ -28,6 +28,7 @@ namespace CaveGame
         private void Start()
         {
             GenerateMap();
+            Debug.Log(Time.time.ToString());
         }
 
         [Button("Generate Map", ButtonSizes.Large)]
@@ -51,7 +52,7 @@ namespace CaveGame
         {
             if (_useRandomSeed)
             {
-                _seed = Time.time.ToString();
+                _seed = Time.time.ToString() + UnityEngine.Random.Range(0, 100000).ToString();
             }
 
             System.Random pseudoRandom = new System.Random(_seed.GetHashCode());
