@@ -9,6 +9,7 @@ namespace CaveGame
     public class MineableItemSO : ItemSO, IDamageable
     {
         public int MaxHealth;
+        public int Rarity;
 
         private int _currentHealth;
         public void Awake()

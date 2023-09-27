@@ -10,6 +10,7 @@ namespace CaveGame
         public static Action OnMapGenerated;
         public static Action<Item> OnItemClicked;
         public static Action OnItemAddedToInventory;
+        public static Action<Vector3> OnTerrainEdit;
 
 
         /*public delegate Item ItemReturnDelegate();

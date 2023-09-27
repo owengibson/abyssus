@@ -7,6 +7,7 @@ namespace CaveGame
     public abstract class ItemSO : ScriptableObject
     {
         public ItemType Type;
+        public GameObject UIPrefab;
         public GameObject Prefab;
         [Space]
         public string Name;

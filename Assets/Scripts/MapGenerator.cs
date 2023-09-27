@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Sirenix.OdinInspector;
+using System.Collections.Generic;
 
 namespace CaveGame
 {
@@ -21,14 +22,16 @@ namespace CaveGame
         [SerializeField] private TileBase _backgroundTile;
         [SerializeField] private Tilemap _tilemap;
 
+        [SerializeField] private MineableItemSO[] _itemsToGenerate;
+
         public int[,] Map { get; private set; }
 
         private TileBase _blankTile;
+        private List<GameObject> _generatedItems = new();
 
         private void Start()
         {
             GenerateMap();
-            Debug.Log(Time.time.ToString());
         }
 
         [Button("Generate Map", ButtonSizes.Large)]
@@ -45,6 +48,9 @@ namespace CaveGame
             RenderMap();
             EventManager.OnMapGenerated?.Invoke();
             Debug.Log("Map generated");
+
+            GenerateItems();
+            Debug.Log("Items generated");
         }
 
 
@@ -126,6 +132,30 @@ namespace CaveGame
             }
         }
 
+        private void GenerateItems()
+        {
+            foreach(var item in _itemsToGenerate)
+            {
+                if (Map == null) return;
+                for (int x = 0; x < _width - 1; x++)
+                {
+                    for (int y = 0; y < _height - 2; y++)
+                    {
+                        if (Map[x, y] == 0) continue;
+                        else if (Map[x, y + 1] == 0 && Map[x, y + 2] == 0 & Map[x + 1, y + 1] == 0 && Map[x + 1, y + 2] == 0)
+                        {
+                            if (UnityEngine.Random.Range(0, 100) <= item.Rarity)
+                            {
+                                //var spawnPos = _tilemap.GetCellCenterWorld(new Vector3Int(x, y));
+                                var generatedItem = Instantiate(item.Prefab, new Vector2(x, y + 1), Quaternion.identity);
+                                _generatedItems.Add(generatedItem);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         [Button("Clear Map", ButtonSizes.Large), GUIColor(1, 0, 0)]
         private void ClearMap()
         {
@@ -139,9 +169,22 @@ namespace CaveGame
             }
         }
 
+        private void RemoveTileAtPosition(Vector3 position)
+        {
+            Debug.Log("RemoveTileAtPosition called");
+            _tilemap.SetTile(Vector3Int.FloorToInt(position), _blankTile);
+        }
+        private void OnEnable()
+        {
+            EventManager.OnTerrainEdit += RemoveTileAtPosition;
+        }
+
         private void OnDisable()
         {
+            EventManager.OnTerrainEdit -= RemoveTileAtPosition;
+
             ClearMap();
         }
+
     }
 }

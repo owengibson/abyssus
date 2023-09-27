@@ -9,12 +9,18 @@ namespace CaveGame
         [SerializeField] private float _playerSpeed = 5f;
         [SerializeField] private InventorySO _inventory;
         [SerializeField] private float _pickupRange = 3f;
+        [Space]
+
+        [SerializeField] private Texture2D _defaultCursor;
+        [SerializeField] private Texture2D _terrainModeCursor;
 
         private Rigidbody2D _rigidbody2D;
+        private bool _isInTerrainMode = false;
 
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            Cursor.SetCursor(_defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
         }
 
         private void MovePlayer()
@@ -48,6 +54,30 @@ namespace CaveGame
             _inventory.AddItem(item.p_Item, 1);
             Destroy(item.gameObject);
             EventManager.OnItemAddedToInventory?.Invoke();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (_isInTerrainMode)
+                {
+                    _isInTerrainMode = false;
+                    Cursor.SetCursor(_defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
+                    Debug.Log("Exited terrain edit mode");
+                }
+                else
+                {
+                    _isInTerrainMode = true;
+                    Cursor.SetCursor(_terrainModeCursor, Vector2.zero, CursorMode.ForceSoftware);
+                    Debug.Log("Entered terrain edit mode");
+                }
+            }
+
+            if (Input.GetMouseButtonDown(0) && _isInTerrainMode)
+            {
+                EventManager.OnTerrainEdit?.Invoke(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            }
         }
 
         private void OnEnable()

@@ -31,7 +31,7 @@ namespace CaveGame
 
             for (int i = 0; i < _inventory.Container.Count; i++)
             {
-                var newItem = Instantiate(_inventory.Container[i].Item.Prefab, slots[i + 1].transform.position, Quaternion.identity, slots[i + 1]);
+                var newItem = Instantiate(_inventory.Container[i].Item.UIPrefab, slots[i + 1].transform.position, Quaternion.identity, slots[i + 1]);
                 newItem.GetComponentInChildren<TextMeshProUGUI>().text = _inventory.Container[i].Amount.ToString("n0");
                 _itemsDisplayed.Add(_inventory.Container[i], newItem);
             }
@@ -47,7 +47,7 @@ namespace CaveGame
                 }
                 else
                 {
-                    var newItem = Instantiate(_inventory.Container[i].Item.Prefab, _slots[i + 1].transform.position, Quaternion.identity, _slots[i + 1]);
+                    var newItem = Instantiate(_inventory.Container[i].Item.UIPrefab, _slots[i + 1].transform.position, Quaternion.identity, _slots[i + 1]);
                     newItem.GetComponentInChildren<TextMeshProUGUI>().text = _inventory.Container[i].Amount.ToString("n0");
                     _itemsDisplayed.Add(_inventory.Container[i], newItem);
                 }

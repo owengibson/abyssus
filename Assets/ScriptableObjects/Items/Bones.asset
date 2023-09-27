@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bones
   m_EditorClassIdentifier: 
   Type: 1
-  Prefab: {fileID: 8011044725621783029, guid: ef72f2ef07aa6b14fa62e03df0992691, type: 3}
+  UIPrefab: {fileID: 8011044725621783029, guid: ef72f2ef07aa6b14fa62e03df0992691, type: 3}
+  Prefab: {fileID: 0}
   Name: Bones
   Description: The remains of a fallen enemy.

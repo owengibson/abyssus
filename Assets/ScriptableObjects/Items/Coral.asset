@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Coral
   m_EditorClassIdentifier: 
   Type: 0
-  Prefab: {fileID: 2630284329719212038, guid: b78858cdc3b8aa74c87cb82ccec35690, type: 3}
+  UIPrefab: {fileID: 2630284329719212038, guid: b78858cdc3b8aa74c87cb82ccec35690, type: 3}
+  Prefab: {fileID: 5213094913257845846, guid: 51f0095a7b23fa041b797376ca3bd8ab, type: 3}
   Name: Coral
   Description: Common sea coral found in underwater caves.
   MaxHealth: 0
+  Rarity: 10
