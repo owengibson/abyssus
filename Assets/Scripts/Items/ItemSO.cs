@@ -1,10 +1,11 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace CaveGame
 {
-    public abstract class ItemSO : ScriptableObject
+    public abstract class ItemSO : SerializedScriptableObject
     {
         public ItemType Type;
         public GameObject UIPrefab;

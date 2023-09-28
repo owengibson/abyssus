@@ -6,6 +6,8 @@ namespace CaveGame
 {
     public class WaterPlayerController : MonoBehaviour
     {
+        public enum PlayerMode { Normal, Terrain }
+
         [SerializeField] private float _playerSpeed = 5f;
         [SerializeField] private InventorySO _inventory;
         [SerializeField] private float _pickupRange = 3f;
@@ -13,13 +15,16 @@ namespace CaveGame
 
         [SerializeField] private Texture2D _defaultCursor;
         [SerializeField] private Texture2D _terrainModeCursor;
+        [SerializeField] private GameObject _terrainModeBorderPrefab;
 
         private Rigidbody2D _rigidbody2D;
-        private bool _isInTerrainMode = false;
+
+        public PlayerMode CurrentMode = PlayerMode.Normal;
 
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+
             Cursor.SetCursor(_defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
         }
 
@@ -49,7 +54,7 @@ namespace CaveGame
 
         private void PickupItem(Item item)
         {
-            if (Vector2.Distance(transform.position, item.transform.position) >= _pickupRange) return;
+            if (Vector2.Distance(transform.position, item.transform.position) > _pickupRange) return;
 
             _inventory.AddItem(item.p_Item, 1);
             Destroy(item.gameObject);
@@ -60,23 +65,25 @@ namespace CaveGame
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (_isInTerrainMode)
+                EventManager.OnTerrainModeToggle?.Invoke();
+                if (CurrentMode == PlayerMode.Terrain)
                 {
-                    _isInTerrainMode = false;
+                    CurrentMode = PlayerMode.Normal;
                     Cursor.SetCursor(_defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
                     Debug.Log("Exited terrain edit mode");
                 }
                 else
                 {
-                    _isInTerrainMode = true;
+                    CurrentMode = PlayerMode.Terrain;
                     Cursor.SetCursor(_terrainModeCursor, Vector2.zero, CursorMode.ForceSoftware);
                     Debug.Log("Entered terrain edit mode");
                 }
             }
 
-            if (Input.GetMouseButtonDown(0) && _isInTerrainMode)
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (Input.GetMouseButtonDown(0) && CurrentMode == PlayerMode.Terrain && Vector2.Distance(transform.position, pos) <= _pickupRange)
             {
-                EventManager.OnTerrainEdit?.Invoke(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                EventManager.OnTerrainEdit?.Invoke(new Vector3(pos.x, pos.y, 0));
             }
         }
 

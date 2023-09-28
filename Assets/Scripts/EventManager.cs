@@ -11,6 +11,9 @@ namespace CaveGame
         public static Action<Item> OnItemClicked;
         public static Action OnItemAddedToInventory;
         public static Action<Vector3> OnTerrainEdit;
+        public static Action OnTerrainModeToggle;
+        public static Action<EnemyController> OnEnemyClicked;
+        public static Action<bool> OnEnterOrExitStartingArea;
 
 
         /*public delegate Item ItemReturnDelegate();

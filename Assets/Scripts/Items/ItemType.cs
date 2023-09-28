@@ -7,6 +7,7 @@ namespace CaveGame
     public enum ItemType
     {
         Mineable,
-        EnemyDrop
+        EnemyDrop,
+        Shop
     }
 }

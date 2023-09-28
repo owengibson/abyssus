@@ -10,7 +10,20 @@ namespace CaveGame
         [SerializeField] private MapGenerator _mapGenerator;
         [SerializeField] private int _spawnSearchRange;
 
-        private GameObject _player;
+        public GameObject Player;
+
+        #region SINGLETON
+        public static PlayerSpawner Instance;
+
+        private void Awake()
+        {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+            }
+            Instance = this;
+        }
+        #endregion
 
         private Vector2 CalculatePlayerSpawnPos()
         {
@@ -35,8 +48,8 @@ namespace CaveGame
 
         private void SpawnPlayer()
         {
-            if (_player != null) return;
-            _player = Instantiate(_playerPrefab, CalculatePlayerSpawnPos(), Quaternion.identity);
+            if (Player != null) return;
+            Player = Instantiate(_playerPrefab, CalculatePlayerSpawnPos(), Quaternion.identity);
             Debug.Log("Player spawned");
         }
 

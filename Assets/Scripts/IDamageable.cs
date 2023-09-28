@@ -12,6 +12,6 @@ namespace CaveGame
         /// </summary>
         /// <param name="amount">Amount of damage to be taken.</param>
         /// <returns>The new current health of damaged object.</returns>
-        public int TakeDamage(int amount);
+        public float TakeDamage(float amount);
     }
 }

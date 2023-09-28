@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace CaveGame
 {
-    public class MapGenerator : MonoBehaviour
+    public class MapGenerator : SerializedMonoBehaviour
     {
         [SerializeField] private int _width;
         [SerializeField] private int _height;
@@ -21,13 +21,18 @@ namespace CaveGame
         [SerializeField] private TileBase _groundTile;
         [SerializeField] private TileBase _backgroundTile;
         [SerializeField] private Tilemap _tilemap;
+        [Space]
 
         [SerializeField] private MineableItemSO[] _itemsToGenerate;
+        [Space]
+
+        [SerializeField] private Dictionary<EnemySO, int> _enemiesToGenerate;
 
         public int[,] Map { get; private set; }
 
         private TileBase _blankTile;
         private List<GameObject> _generatedItems = new();
+        private List<GameObject> _generatedEnemies = new();
 
         private void Start()
         {
@@ -51,6 +56,8 @@ namespace CaveGame
 
             GenerateItems();
             Debug.Log("Items generated");
+
+            SpawnEnemies();
         }
 
 
@@ -141,7 +148,15 @@ namespace CaveGame
                 {
                     for (int y = 0; y < _height - 2; y++)
                     {
+                        // This checks to see if x,y is too close to other generated items.
+                        foreach (var existingItem in _generatedItems)
+                        {
+                            if (Vector2.Distance(new Vector2(x, y + 1), existingItem.transform.position) < item.ProximityLimit) continue;
+                        }
+
                         if (Map[x, y] == 0) continue;
+
+                        // This checks to see if there is a blank 2x2 square above and to the right of Map[x,y] (this is a suitable spawn location)
                         else if (Map[x, y + 1] == 0 && Map[x, y + 2] == 0 & Map[x + 1, y + 1] == 0 && Map[x + 1, y + 2] == 0)
                         {
                             if (UnityEngine.Random.Range(0, 100) <= item.Rarity)
@@ -151,6 +166,31 @@ namespace CaveGame
                                 _generatedItems.Add(generatedItem);
                             }
                         }
+                    }
+                }
+            }
+        }
+
+        private void SpawnEnemies()
+        {
+
+            foreach (EnemySO enemy in _enemiesToGenerate.Keys)
+            {
+                Debug.Log($"Spawning {_enemiesToGenerate[enemy]} of {enemy.Name}");
+                while (_generatedEnemies.Count < _enemiesToGenerate[enemy])
+                {
+                    int x = UnityEngine.Random.Range(0, _width);
+                    int y = UnityEngine.Random.Range(0, _height);
+
+                    if (Map[x, y] == 1) continue;
+                    for (int j = -5; j < 6; j++)
+                    {
+                        if (Map[x + j, y] == 1 || Map[x + j, y + 1] == 1) continue;
+
+                        // SUITABLE SPAWN LOCATION
+                        var generatedEnemy = Instantiate(enemy.Prefab, new Vector2(x, y), Quaternion.identity);
+                        _generatedEnemies.Add(generatedEnemy);
+                        break;
                     }
                 }
             }
@@ -171,7 +211,7 @@ namespace CaveGame
 
         private void RemoveTileAtPosition(Vector3 position)
         {
-            Debug.Log("RemoveTileAtPosition called");
+            Debug.Log("RemoveTileAtPosition called at " + position);
             _tilemap.SetTile(Vector3Int.FloorToInt(position), _blankTile);
         }
         private void OnEnable()

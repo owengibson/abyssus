@@ -19,3 +19,4 @@ MonoBehaviour:
   Description: Common sea coral found in underwater caves.
   MaxHealth: 0
   Rarity: 10
+  ProximityLimit: 8
