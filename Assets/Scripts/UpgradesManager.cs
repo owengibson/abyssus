@@ -45,6 +45,7 @@ namespace CaveGame
                         }
                     }
                 }
+                Debug.Log("Item bought");
                 GameStats.Instance.Stats.ItemsBought++;
                 _boughtScreen.SetActive(true);
             }

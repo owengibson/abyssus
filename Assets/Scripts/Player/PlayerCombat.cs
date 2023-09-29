@@ -21,9 +21,11 @@ namespace CaveGame
 
         private void Attack(EnemyController target)
         {
-            if (Vector2.Distance(transform.position, target.transform.position) > _stats.AttackRange && _playerController.CurrentMode == WaterPlayerController.PlayerMode.Terrain) return;
-
-            target.TakeDamage(_stats.Damage);
+            if (_playerController.CurrentMode == WaterPlayerController.PlayerMode.Terrain) return;
+            if (Vector2.Distance(transform.position, target.transform.position) <= _stats.AttackRange)
+            {
+                target.TakeDamage(_stats.Damage);
+            }
         }
 
         public float TakeDamage(float amount)

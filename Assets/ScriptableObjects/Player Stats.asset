@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 10
   Damage: 2
-  AttackRange: 8
+  AttackRange: 3

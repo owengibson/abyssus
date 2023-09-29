@@ -67,8 +67,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Type: 0
+  Type: 2
   UIPrefab: {fileID: 0}
   Prefab: {fileID: 0}
-  Name: 
+  Name: Sword
   Description: 

@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerSpeed: 15
   _inventory: {fileID: 11400000, guid: d2873684f35cf004289a09331666de98, type: 2}
-  _pickupRange: 8
+  _pickupRange: 4
   _defaultCursor: {fileID: 2800000, guid: 71b742e15b486ac4fb72b5aa3c7826a6, type: 3}
   _terrainModeCursor: {fileID: 2800000, guid: f67f3270d85589f49a592c837a973836, type: 3}
   _terrainModeBorderPrefab: {fileID: 5055015163557875553, guid: 5fef48693ef0bbc44b963d932a842fe9, type: 3}
