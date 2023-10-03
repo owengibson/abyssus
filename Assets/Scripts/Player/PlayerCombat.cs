@@ -35,6 +35,7 @@ namespace CaveGame
             {
                 Die();
             }
+            EventManager.OnPlayerTakeDamage?.Invoke(_currentHealth, _stats.MaxHealth);
             return _currentHealth;
         }
 

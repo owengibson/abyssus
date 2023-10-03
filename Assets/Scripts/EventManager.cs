@@ -14,6 +14,7 @@ namespace CaveGame
         public static Action OnTerrainModeToggle;
         public static Action<EnemyController> OnEnemyClicked;
         public static Action<bool> OnEnterOrExitStartingArea;
+        public static Action<float, float> OnPlayerTakeDamage;
 
 
         /*public delegate Item ItemReturnDelegate();
