@@ -27,6 +27,7 @@ namespace CaveGame
 
         private Vector2 CalculatePlayerSpawnPos()
         {
+            Vector2 spawnPos = Vector2.zero;
             int mapWidth = _mapGenerator.Map.GetLength(0);
             int mapHeight = _mapGenerator.Map.GetLength(1);
 
@@ -39,11 +40,13 @@ namespace CaveGame
                     if (_mapGenerator.Map[mapWidth - 1 - x, mapHeight - 1 - y] == 1) continue;
                     else if (_mapGenerator.Map[mapWidth - 1 - x, mapHeight - 1 - (y + 1)] == 0)
                     {
-                        return new Vector2(mapWidth - 1 - x + 0.5f, mapHeight - 1 - y);
+                        spawnPos = new Vector2(mapWidth - 1 - x + 0.5f, mapHeight - 1 - y);
+                        return spawnPos;
                     }
                 }
             }
-            return Vector2.zero;
+
+            return spawnPos;
         }
 
         private void SpawnPlayer()

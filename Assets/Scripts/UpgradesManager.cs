@@ -28,6 +28,8 @@ namespace CaveGame
             if (completeItemCosts == _item.Cost.Keys.Count)
             {
                 // BUY
+                List<InventorySlot> newContainer = _inventory.Container;
+
                 foreach (ItemSO item in _item.Cost.Keys)
                 {
                     foreach (InventorySlot slot in _inventory.Container)
@@ -36,7 +38,7 @@ namespace CaveGame
                         {
                             if (slot.Amount == _item.Cost[item])
                             {
-                                _inventory.Container.Remove(slot);
+                                newContainer.Remove(slot);
                             }
                             else
                             {
@@ -45,6 +47,7 @@ namespace CaveGame
                         }
                     }
                 }
+                _inventory.Container = newContainer;
                 Debug.Log("Item bought");
                 GameStats.Instance.Stats.ItemsBought++;
                 _boughtScreen.SetActive(true);

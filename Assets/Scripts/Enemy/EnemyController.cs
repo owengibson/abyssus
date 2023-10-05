@@ -97,10 +97,12 @@ namespace CaveGame
             CurrentState = EnemyState.Chase;
         }
 
-        private void Attack()
+        private void Attack(IDamageable target)
         {
             _rigidbody2D.DOKill();
             CurrentState = EnemyState.Attack;
+
+            target.TakeDamage(_enemy.Damage);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -115,7 +117,7 @@ namespace CaveGame
             // Attacking
             if (collision.gameObject.CompareTag("Player"))
             {
-                Attack();
+                Attack(collision.gameObject.GetComponent<IDamageable>());
             }
         }
 
