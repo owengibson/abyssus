@@ -16,6 +16,7 @@ MonoBehaviour:
   Name: Piranha
   MaxHealth: 10
   Damage: 2
+  AttackSpeed: 0.75
   PatrolDistance: 5
   Drops:
   - {fileID: 11400000, guid: f5e95a49b19fe23448281696f0e958af, type: 2}

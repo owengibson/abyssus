@@ -11,6 +11,7 @@ namespace CaveGame
         public string Name;
         public float MaxHealth;
         public float Damage;
+        public float AttackSpeed;
         public int PatrolDistance;
         public EnemyDropItemSO[] Drops;
     }

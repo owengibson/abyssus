@@ -39,7 +39,6 @@ namespace CaveGame
             GenerateMap();
         }
 
-        [Button("Generate Map", ButtonSizes.Large)]
         private void GenerateMap()
         {
             Map = new int[_width, _height];
@@ -190,24 +189,13 @@ namespace CaveGame
                         // SUITABLE SPAWN LOCATION
                         var generatedEnemy = Instantiate(enemy.Prefab, new Vector2(x, y), Quaternion.identity);
                         _generatedEnemies.Add(generatedEnemy);
+                        generatedEnemy.GetComponent<EnemyController>().PrimaryTarget = PlayerSpawner.Instance.Player.transform;
                         break;
                     }
                 }
             }
         }
 
-        [Button("Clear Map", ButtonSizes.Large), GUIColor(1, 0, 0)]
-        private void ClearMap()
-        {
-            if (Map != null) return;
-            for (int x = 0; x < _width; x++)
-            {
-                for (int y = 0; y < _height; y++)
-                {
-                    _tilemap.SetTile(new Vector3Int(x, y), _blankTile);
-                }
-            }
-        }
 
         private void RemoveTileAtPosition(Vector3 position)
         {
@@ -224,6 +212,33 @@ namespace CaveGame
             EventManager.OnTerrainEdit -= RemoveTileAtPosition;
 
             ClearMap();
+        }
+
+        [Button("Generate Map", ButtonSizes.Large)]
+        private void GenerateMapEditorOnly()
+        {
+            Map = new int[_width, _height];
+            RandomFillMap();
+
+            for (int i = 0; i < 5; i++)
+            {
+                SmoothMap();
+            }
+
+            RenderMap();
+        }
+
+        [Button("Clear Map", ButtonSizes.Large), GUIColor(1, 0, 0)]
+        private void ClearMap()
+        {
+            //if (Map != null) return;
+            for (int x = 0; x < _width; x++)
+            {
+                for (int y = 0; y < _height; y++)
+                {
+                    _tilemap.SetTile(new Vector3Int(x, y), _blankTile);
+                }
+            }
         }
 
     }
