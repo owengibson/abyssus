@@ -221,7 +221,7 @@ namespace CaveGame
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            EventManager.OnEnemyClicked?.Invoke(this);
+            //EventManager.OnEnemyClicked?.Invoke(this);
         }
     }
 }

@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fab7a7fcbefb82408239cd6101e6e81, type: 3}
   m_Name: Piranha
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 4619558094650664301, guid: 5e086f9ebaf35c04fb3ff13b237cbff3, type: 3}
+  Prefab: {fileID: 2772400053637126532, guid: 2e79921781edc7345981fb44d26b0c5b, type: 3}
   Name: Piranha
   MaxHealth: 10
   Damage: 2
+  ChaseSpeed: 12
   AttackSpeed: 0.75
+  AttackRange: 3
   PatrolDistance: 5
   Drops:
   - {fileID: 11400000, guid: f5e95a49b19fe23448281696f0e958af, type: 2}

@@ -11,6 +11,7 @@ namespace CaveGame
         [SerializeField] private int _spawnSearchRange;
 
         public GameObject Player;
+        public GameObject PlayerParent;
 
         #region SINGLETON
         public static PlayerSpawner Instance;
@@ -52,8 +53,9 @@ namespace CaveGame
         private void SpawnPlayer()
         {
             if (Player != null) return;
-            Player = Instantiate(_playerPrefab, CalculatePlayerSpawnPos(), Quaternion.identity);
+            PlayerParent = Instantiate(_playerPrefab, CalculatePlayerSpawnPos(), Quaternion.identity);
             Debug.Log("Player spawned");
+            Player = PlayerParent.GetComponentInChildren<WaterPlayerController>().gameObject;
         }
 
         private void OnEnable()

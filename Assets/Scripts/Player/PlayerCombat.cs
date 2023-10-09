@@ -19,7 +19,7 @@ namespace CaveGame
             _currentHealth = _stats.MaxHealth;
         }
 
-        private void Attack(EnemyController target)
+        private void Attack(EnemyAI target)
         {
             if (_playerController.CurrentMode == WaterPlayerController.PlayerMode.Terrain) return;
             if (Vector2.Distance(transform.position, target.transform.position) <= _stats.AttackRange)
