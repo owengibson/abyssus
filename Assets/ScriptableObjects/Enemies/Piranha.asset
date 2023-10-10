@@ -19,6 +19,7 @@ MonoBehaviour:
   ChaseSpeed: 12
   AttackCooldown: 0.75
   AttackRange: 3
+  DetectionRadius: 25
   PatrolDistance: 5
   Drops:
   - {fileID: 11400000, guid: f5e95a49b19fe23448281696f0e958af, type: 2}

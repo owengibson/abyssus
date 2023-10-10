@@ -14,6 +14,7 @@ namespace CaveGame
         public float ChaseSpeed;
         public float AttackCooldown;
         public float AttackRange;
+        public float DetectionRadius;
         public int PatrolDistance;
         public EnemyDropItemSO[] Drops;
     }

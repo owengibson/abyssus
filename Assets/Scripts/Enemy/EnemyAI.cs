@@ -22,7 +22,6 @@ namespace CaveGame
         [Space]
 
         //[SerializeField] private Transform _target;
-        [SerializeField] private float _detectionRadius = 30f;
         [SerializeField] private float _nextWaypointDistance = 3f;
 
         private float _currentHealth;
@@ -111,12 +110,12 @@ namespace CaveGame
                 StartCoroutine(Attack(Target.GetComponent<IDamageable>()));
             }
 
-            if (Vector2.Distance(_rigidbody2D.position, Target.position) <= _detectionRadius && CurrentState != EnemyState.Chase)
+            if (Vector2.Distance(_rigidbody2D.position, Target.position) <= _enemy.DetectionRadius && CurrentState != EnemyState.Chase)
             {
                 // START CHASING
                 Chase();
             }
-            else if (Vector2.Distance(_rigidbody2D.position, Target.position) > _detectionRadius && CurrentState == EnemyState.Chase)
+            else if (Vector2.Distance(_rigidbody2D.position, Target.position) > _enemy.DetectionRadius && CurrentState == EnemyState.Chase)
             {
                 // STOP CHASING (start "patrolling")
                 StopCoroutine(UpdatePath());
@@ -174,7 +173,7 @@ namespace CaveGame
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(_rigidbody2D.position, _detectionRadius);
+            Gizmos.DrawWireSphere(_rigidbody2D.position, _enemy.DetectionRadius);
         }
     }
 }
