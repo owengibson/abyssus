@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bebde38741833b64a94620632cbdd093
+guid: 5f6a4c85fab1cfc448dadbc8a40f139a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,11 +136,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Piranah spritesheet_0
+      name: Submarine spritesheet 2-export_0
       rect:
         serializedVersion: 2
         x: 32
-        y: 120
+        y: 136
         width: 32
         height: 32
       alignment: 0
@@ -150,18 +150,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 164fd17df5036de4b9d6a6cc18b827cf
-      internalID: 863772636
+      spriteID: aa76f5706fdacd54c8bb830e8f65e4fb
+      internalID: -323687728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Piranah spritesheet_1
+      name: Submarine spritesheet 2-export_1
       rect:
         serializedVersion: 2
         x: 80
-        y: 120
+        y: 136
         width: 32
         height: 32
       alignment: 0
@@ -171,18 +171,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16482f572220ba643b5c91a0f3bd47e8
-      internalID: 250830415
+      spriteID: dc9df33208e5f144985b1bfadec8a3a6
+      internalID: 1376158017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Piranah spritesheet_2
+      name: Submarine spritesheet 2-export_2
       rect:
         serializedVersion: 2
-        x: 80
-        y: 72
+        x: 128
+        y: 136
         width: 32
         height: 32
       alignment: 0
@@ -192,8 +192,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0992e36ac052ef9448b36c2aeef38c3c
-      internalID: 1451307494
+      spriteID: 1be14455147fd1f42aebda68eeff5b83
+      internalID: 694275128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Submarine spritesheet 2-export_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 88
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49a8bc7d22a2d334eb98e9651b50f914
+      internalID: -2122462175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Submarine spritesheet 2-export_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 88
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6831eb2d7fdd52e49a43f61266e71cee
+      internalID: -2145968838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Submarine spritesheet 2-export_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 88
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3250f8645efd46429b4730eb410c133
+      internalID: -34774393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Submarine spritesheet 2-export_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 40
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84fe707cdc20c514eae9e475c18eb4e5
+      internalID: -1347712673
       vertices: []
       indices: 
       edges: []
@@ -209,9 +293,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Piranah spritesheet_0: 863772636
-      Piranah spritesheet_1: 250830415
-      Piranah spritesheet_2: 1451307494
+      Submarine spritesheet 2-export_0: -323687728
+      Submarine spritesheet 2-export_1: 1376158017
+      Submarine spritesheet 2-export_2: 694275128
+      Submarine spritesheet 2-export_3: -2122462175
+      Submarine spritesheet 2-export_4: -2145968838
+      Submarine spritesheet 2-export_5: -34774393
+      Submarine spritesheet 2-export_6: -1347712673
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
