@@ -17,7 +17,7 @@ MonoBehaviour:
   MaxHealth: 10
   Damage: 2
   ChaseSpeed: 12
-  AttackSpeed: 0.75
+  AttackCooldown: 0.75
   AttackRange: 3
   PatrolDistance: 5
   Drops:

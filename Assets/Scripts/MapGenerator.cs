@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace CaveGame
 {
@@ -53,10 +54,17 @@ namespace CaveGame
             EventManager.OnMapGenerated?.Invoke();
             Debug.Log("Map generated");
 
+            Invoke("RescanPathfindingGraph", 0.1f);
+
             GenerateItems();
             Debug.Log("Items generated");
 
             SpawnEnemies();
+        }
+
+        private void RescanPathfindingGraph()
+        {
+            AstarPath.active.Scan();
         }
 
 
@@ -189,7 +197,7 @@ namespace CaveGame
                         // SUITABLE SPAWN LOCATION
                         var generatedEnemy = Instantiate(enemy.Prefab, new Vector2(x, y), Quaternion.identity);
                         _generatedEnemies.Add(generatedEnemy);
-                        generatedEnemy.GetComponent<EnemyController>().PrimaryTarget = PlayerSpawner.Instance.Player.transform;
+                        generatedEnemy.GetComponent<EnemyAI>().Target = PlayerSpawner.Instance.Player.transform;
                         break;
                     }
                 }

@@ -11,6 +11,7 @@ namespace CaveGame
         private WaterPlayerController _playerController;
 
         private float _currentHealth;
+        private bool _isAttackOnCooldown = false;
 
         private void Awake()
         {
@@ -22,8 +23,9 @@ namespace CaveGame
         private void Attack(EnemyAI target)
         {
             if (_playerController.CurrentMode == WaterPlayerController.PlayerMode.Terrain) return;
-            if (Vector2.Distance(transform.position, target.transform.position) <= _stats.AttackRange)
+            if (Vector2.Distance(transform.position, target.transform.position) <= _stats.AttackRange && !_isAttackOnCooldown)
             {
+                StartCoroutine(AttackCooldown(_stats.AttackCooldown));
                 target.TakeDamage(_stats.Damage);
             }
         }
@@ -42,6 +44,13 @@ namespace CaveGame
         private void Die()
         {
 
+        }
+
+        private IEnumerator AttackCooldown(float cooldown)
+        {
+            _isAttackOnCooldown = true;
+            yield return new WaitForSeconds(cooldown);
+            _isAttackOnCooldown = false;
         }
 
         private void OnEnable()

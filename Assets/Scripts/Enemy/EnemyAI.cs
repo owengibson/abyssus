@@ -29,13 +29,15 @@ namespace CaveGame
 
         private Path _path;
         private int _currentWaypoint = 0;
-        private bool _hasReachedEndOfPath = false;
-        private bool _canExitChase = true;
+
+        private bool _isAttackOnCooldown = false;
 
         private Seeker _seeker;
 
         private void Start()
         {
+            _currentHealth = _enemy.MaxHealth;
+
             if (Target == null)
             {
                 Target = PlayerSpawner.Instance.Player.transform;
@@ -76,12 +78,7 @@ namespace CaveGame
 
                 if (_currentWaypoint >= _path.vectorPath.Count)
                 {
-                    _hasReachedEndOfPath = true;
                     return;
-                }
-                else
-                {
-                    _hasReachedEndOfPath = false;
                 }
 
                 Vector2 direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rigidbody2D.position).normalized;
@@ -108,7 +105,7 @@ namespace CaveGame
 
         private void Update()
         {
-            if (Vector2.Distance(_rigidbody2D.position, Target.position) <= _enemy.AttackRange && CurrentState != EnemyState.Attack)
+            if (Vector2.Distance(_rigidbody2D.position, Target.position) <= _enemy.AttackRange && CurrentState != EnemyState.Attack && !_isAttackOnCooldown)
             {
                 // ATTACK
                 StartCoroutine(Attack(Target.GetComponent<IDamageable>()));
@@ -127,13 +124,6 @@ namespace CaveGame
             }
         }
 
-        private IEnumerator ChaseExitBuffer()
-        {
-            _canExitChase = false;
-            yield return new WaitForSeconds(1.5f);
-            _canExitChase = true;
-        }
-
         private void Chase()
         {
             CurrentState = EnemyState.Chase;
@@ -143,11 +133,15 @@ namespace CaveGame
 
         private IEnumerator Attack(IDamageable target)
         {
+            _isAttackOnCooldown = true;
+
             CurrentState = EnemyState.Attack;
             target.TakeDamage(_enemy.Damage);
+            Debug.Log("Attacked " + target);
 
-            yield return new WaitForSeconds(_enemy.AttackSpeed);
+            yield return new WaitForSeconds(_enemy.AttackCooldown);
             CurrentState = EnemyState.Chase;
+            _isAttackOnCooldown = false;
         }
 
         public float TakeDamage(float amount)

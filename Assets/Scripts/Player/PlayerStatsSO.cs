@@ -10,5 +10,6 @@ namespace CaveGame
         public float MaxHealth;
         public float Damage;
         public float AttackRange;
+        public float AttackCooldown;
     }
 }
