@@ -13,7 +13,7 @@ namespace CaveGame
         public EnemyState CurrentState = EnemyState.Patrol;
         public Transform Target;
 
-        [SerializeField] private EnemySO _enemy;
+        public EnemySO Enemy;
         [Space(20)] 
 
         [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -35,7 +35,7 @@ namespace CaveGame
 
         private void Start()
         {
-            _currentHealth = _enemy.MaxHealth;
+            _currentHealth = Enemy.MaxHealth;
 
             if (Target == null)
             {
@@ -81,7 +81,7 @@ namespace CaveGame
                 }
 
                 Vector2 direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rigidbody2D.position).normalized;
-                Vector2 force = direction * _enemy.ChaseSpeed;
+                Vector2 force = direction * Enemy.ChaseSpeed;
 
                 _rigidbody2D.AddForce(force);
 
@@ -104,18 +104,18 @@ namespace CaveGame
 
         private void Update()
         {
-            if (Vector2.Distance(_rigidbody2D.position, Target.position) <= _enemy.AttackRange && CurrentState != EnemyState.Attack && !_isAttackOnCooldown)
+            if (Vector2.Distance(_rigidbody2D.position, Target.position) <= Enemy.AttackRange && CurrentState != EnemyState.Attack && !_isAttackOnCooldown)
             {
                 // ATTACK
                 StartCoroutine(Attack(Target.GetComponent<IDamageable>()));
             }
 
-            if (Vector2.Distance(_rigidbody2D.position, Target.position) <= _enemy.DetectionRadius && CurrentState != EnemyState.Chase)
+            if (Vector2.Distance(_rigidbody2D.position, Target.position) <= Enemy.DetectionRadius && CurrentState != EnemyState.Chase)
             {
                 // START CHASING
                 Chase();
             }
-            else if (Vector2.Distance(_rigidbody2D.position, Target.position) > _enemy.DetectionRadius && CurrentState == EnemyState.Chase)
+            else if (Vector2.Distance(_rigidbody2D.position, Target.position) > Enemy.DetectionRadius && CurrentState == EnemyState.Chase)
             {
                 // STOP CHASING (start "patrolling")
                 StopCoroutine(UpdatePath());
@@ -135,10 +135,10 @@ namespace CaveGame
             _isAttackOnCooldown = true;
 
             CurrentState = EnemyState.Attack;
-            target.TakeDamage(_enemy.Damage);
+            target.TakeDamage(Enemy.Damage);
             Debug.Log("Attacked " + target);
 
-            yield return new WaitForSeconds(_enemy.AttackCooldown);
+            yield return new WaitForSeconds(Enemy.AttackCooldown);
             CurrentState = EnemyState.Chase;
             _isAttackOnCooldown = false;
         }
@@ -151,14 +151,14 @@ namespace CaveGame
                 Die();
             }
 
-            _healthBar.value = _currentHealth / _enemy.MaxHealth;
+            _healthBar.value = _currentHealth / Enemy.MaxHealth;
 
             return _currentHealth;
         }
 
         private void Die()
         {
-            foreach (var drop in _enemy.Drops)
+            foreach (var drop in Enemy.Drops)
             {
                 Instantiate(drop.Prefab, new Vector2(transform.position.x + Random.Range(-1f, 1f), transform.position.y + Random.Range(-1f, 1f)), Quaternion.identity);
             }
@@ -173,7 +173,7 @@ namespace CaveGame
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(_rigidbody2D.position, _enemy.DetectionRadius);
+            Gizmos.DrawWireSphere(_rigidbody2D.position, Enemy.DetectionRadius);
         }
     }
 }

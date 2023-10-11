@@ -197,7 +197,9 @@ namespace CaveGame
                         // SUITABLE SPAWN LOCATION
                         var generatedEnemy = Instantiate(enemy.Prefab, new Vector2(x, y), Quaternion.identity);
                         _generatedEnemies.Add(generatedEnemy);
-                        generatedEnemy.GetComponent<EnemyAI>().Target = PlayerSpawner.Instance.Player.transform;
+                        var generatedEnemyAI = generatedEnemy.GetComponent<EnemyAI>();
+                        generatedEnemyAI.Target = PlayerSpawner.Instance.Player.transform;
+                        generatedEnemyAI.Enemy = enemy;
                         break;
                     }
                 }

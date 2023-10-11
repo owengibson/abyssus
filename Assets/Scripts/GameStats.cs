@@ -17,6 +17,8 @@ namespace CaveGame
                 Destroy(gameObject);
             }
             Instance = this;
+
+            DontDestroyOnLoad(gameObject);
         }
     }
 }

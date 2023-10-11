@@ -13,6 +13,7 @@ namespace CaveGame
         public static Action<Vector3> OnTerrainEdit;
         public static Action OnTerrainModeToggle;
         public static Action<EnemyAI> OnEnemyClicked;
+        public static Action<WaveEnemyAI> OnWaveEnemyClicked;
         public static Action<bool> OnEnterOrExitStartingArea;
         public static Action<float, float> OnPlayerTakeDamage;
 

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fab7a7fcbefb82408239cd6101e6e81, type: 3}
   m_Name: Wave Piranha
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 2772400053637126532, guid: 2e79921781edc7345981fb44d26b0c5b, type: 3}
+  Prefab: {fileID: 505692539735083271, guid: 20001813bd07e894d8d5790c3182629a, type: 3}
   Name: Piranha
   MaxHealth: 10
   Damage: 2
-  ChaseSpeed: 12
-  AttackCooldown: 0.75
+  ChaseSpeed: 6
+  AttackCooldown: 1
   AttackRange: 3
   DetectionRadius: 50
   PatrolDistance: 5
