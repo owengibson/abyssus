@@ -85,6 +85,7 @@ namespace CaveGame
         public void OnPointerClick(PointerEventData eventData)
         {
             EventManager.OnWaveEnemyClicked?.Invoke(this);
+            Debug.Log("Clicked on " + gameObject.name);
         }
 
         public float TakeDamage(float amount)
