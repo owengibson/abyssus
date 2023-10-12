@@ -38,7 +38,7 @@ namespace CaveGame
 
                 if (GameStats.Instance.Stats.ItemsBought == 0)
                 {
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("BoatScene");
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("SubmarineScene");
                 }
                 else
                 {
