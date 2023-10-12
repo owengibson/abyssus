@@ -16,6 +16,9 @@ namespace CaveGame
         [SerializeField] private float _timeBetweenWaves;
         [SerializeField] private float _timeBetweenEnemies;
         [SerializeField] private Transform _enemyTarget;
+        [Space]
+
+        [SerializeField] private GameObject _leaveButton;
 
         private void Start()
         {
@@ -44,6 +47,8 @@ namespace CaveGame
 
                 yield return new WaitForSeconds(_timeBetweenWaves);
             }
+            yield return new WaitForSeconds(5);
+            _leaveButton.SetActive(true);
         }
     }
 }
