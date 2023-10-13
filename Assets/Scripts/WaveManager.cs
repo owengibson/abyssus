@@ -22,10 +22,11 @@ namespace CaveGame
 
         private void Start()
         {
-            if (GameStats.Instance.Stats.CavesVisited % 3 == 0)
+            /*if (GameStats.Instance.Stats.CavesVisited % 3 == 0)
             {
                 StartCoroutine(SpawnWaves());
-            }
+            }*/
+            StartCoroutine(SpawnWaves());
         }
 
         private IEnumerator SpawnWaves()

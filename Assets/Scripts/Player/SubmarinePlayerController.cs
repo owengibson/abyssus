@@ -15,6 +15,8 @@ namespace CaveGame
         private Rigidbody2D _rigidbody2D;
         private SpriteRenderer _spriteRenderer;
 
+        private bool _isInTurretArea = false;
+
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -48,7 +50,7 @@ namespace CaveGame
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && _isInTurretArea)
             {
                 if (CurrentMode == PlayerMode.Default)
                 {
@@ -61,6 +63,18 @@ namespace CaveGame
                     _spriteRenderer.enabled = true;
                 }
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (!collision.CompareTag("Turret")) return;
+            _isInTurretArea = true;
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (!collision.CompareTag("Turret")) return;
+            _isInTurretArea = false;
         }
     }
 }
