@@ -16,6 +16,7 @@ namespace CaveGame
         public static Action<WaveEnemyAI> OnWaveEnemyClicked;
         public static Action<bool> OnEnterOrExitStartingArea;
         public static Action<float, float> OnPlayerTakeDamage;
+        public static Action OnPlayerDeath;
 
 
         /*public delegate Item ItemReturnDelegate();

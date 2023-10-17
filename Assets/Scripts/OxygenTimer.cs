@@ -59,6 +59,7 @@ namespace CaveGame
 
                 yield return null;
             }
+            EventManager.OnPlayerDeath?.Invoke();
         }
 
         private void Start()

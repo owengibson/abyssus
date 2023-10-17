@@ -4069,7 +4069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentMode: 0
-  _playerSpeed: 0.2
+  _playerSpeed: 0.15
 --- !u!4 &1333827765
 Transform:
   m_ObjectHideFlags: 0

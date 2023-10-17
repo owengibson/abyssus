@@ -43,7 +43,13 @@ namespace CaveGame
 
         private void Die()
         {
+            EventManager.OnPlayerDeath?.Invoke();
+        }
 
+        private void DisablePlayer()
+        {
+            _playerController.enabled = false;
+            enabled = false;
         }
 
         private IEnumerator AttackCooldown(float cooldown)
@@ -56,10 +62,12 @@ namespace CaveGame
         private void OnEnable()
         {
             EventManager.OnEnemyClicked += Attack;
+            EventManager.OnPlayerDeath += DisablePlayer;
         }
         private void OnDisable()
         {
             EventManager.OnEnemyClicked -= Attack;
+            EventManager.OnPlayerDeath -= DisablePlayer;
         }
     }
 }
