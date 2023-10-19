@@ -25,6 +25,9 @@ namespace CaveGame
             if (GameStats.Instance.Stats.CavesVisited % 2 == 0)
             {
                 StartCoroutine(SpawnWaves());
+            }
+            else
+            {
                 _leaveButton.SetActive(true);
             }
             //StartCoroutine(SpawnWaves());

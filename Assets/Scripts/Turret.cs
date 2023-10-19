@@ -6,6 +6,7 @@ namespace CaveGame
 {
     public class Turret : MonoBehaviour
     {
+        public ShopItemSO Item;
         [SerializeField] private GameObject _popup;
 
         private bool _isInTrigger = false;

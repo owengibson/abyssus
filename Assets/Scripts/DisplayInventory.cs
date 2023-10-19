@@ -95,5 +95,10 @@ namespace CaveGame
         {
             EventManager.OnItemAddedToInventory -= UpdateDisplay;
         }
+
+        private void OnApplicationQuit()
+        {
+            _inventory.Container.Clear();
+        }
     }
 }

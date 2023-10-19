@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace CaveGame
@@ -29,7 +30,7 @@ namespace CaveGame
             if (completeItemCosts == _item.Cost.Keys.Count)
             {
                 // BUY
-                List<InventorySlot> newContainer = _inventory.Container;
+                List<InventorySlot> newContainer = new List<InventorySlot>(_inventory.Container);
 
                 foreach (ItemSO item in _item.Cost.Keys)
                 {
@@ -52,6 +53,7 @@ namespace CaveGame
                 Debug.Log("Item bought");
                 //GameStats.Instance.Stats.ItemsBought++;
                 EventManager.OnItemBuy?.Invoke(_item);
+                EventManager.OnItemAddedToInventory?.Invoke();
                 _craftingCanvas.SetActive(false);
 
             }

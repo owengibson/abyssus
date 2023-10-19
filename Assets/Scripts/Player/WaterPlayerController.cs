@@ -95,10 +95,5 @@ namespace CaveGame
         {
             EventManager.OnItemClicked -= PickupItem;
         }
-
-        private void OnApplicationQuit()
-        {
-            _inventory.Container.Clear();
-        }
     }
 }

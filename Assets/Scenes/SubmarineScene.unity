@@ -3826,7 +3826,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 810487126}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 928440477}
+        m_TargetAssemblyTypeName: CaveGame.UpgradesManager, Assembly-CSharp
+        m_MethodName: BuyUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &810487126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4559,6 +4571,7 @@ GameObject:
   - component: {fileID: 1025103885}
   - component: {fileID: 1025103888}
   - component: {fileID: 1025103889}
+  - component: {fileID: 1025103890}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4609,7 +4622,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 27.529451
+  orthographic size: 12.71
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4700,6 +4713,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   m_MaxRayIntersections: 0
+--- !u!114 &1025103890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025103884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2c2a8bfd88a7b4d8109c999d9a2f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nonWaveCameraSize: 12.71
+  _waveCameraSize: 27.52945
 --- !u!1 &1028546770
 GameObject:
   m_ObjectHideFlags: 0
@@ -117786,6 +117813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ffeff2b459b854a93c8eea9ac7ba19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _placedItems: {fileID: 11400000, guid: 0aaddc38d6767ce4d8c1e6a1ab71df77, type: 2}
 --- !u!1 &2144397258
 GameObject:
   m_ObjectHideFlags: 0
