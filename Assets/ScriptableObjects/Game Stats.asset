@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Game Stats
   m_EditorClassIdentifier: 
   ItemsBought: 0
-  CavesVisited: 3
+  CavesVisited: 0

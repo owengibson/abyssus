@@ -17,6 +17,7 @@ namespace CaveGame
         public static Action<bool> OnEnterOrExitStartingArea;
         public static Action<float, float> OnPlayerTakeDamage;
         public static Action OnPlayerDeath;
+        public static Action<ShopItemSO> OnItemBuy;
 
 
         /*public delegate Item ItemReturnDelegate();

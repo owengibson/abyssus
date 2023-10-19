@@ -20,5 +20,10 @@ namespace CaveGame
 
             DontDestroyOnLoad(gameObject);
         }
+
+        private void OnApplicationQuit()
+        {
+            Stats.CavesVisited = 0;
+        }
     }
 }

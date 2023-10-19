@@ -68,7 +68,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
   Type: 2
-  UIPrefab: {fileID: 0}
-  Prefab: {fileID: 0}
+  UIPrefab: {fileID: 8382832290682642906, guid: 26cdff61dbcd7f0419e83920528073f5, type: 3}
+  Prefab: {fileID: 7796470866032583156, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
   Name: Turret
   Description: 

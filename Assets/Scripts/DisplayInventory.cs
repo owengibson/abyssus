@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,9 +10,16 @@ namespace CaveGame
     public class DisplayInventory : MonoBehaviour
     {
         [SerializeField] private InventorySO _inventory;
+        [Space]
+
+        [SerializeField] private Vector3 _hiddenPosition;
+        [SerializeField] private Vector3 _shownPosition;
 
         private Dictionary<InventorySlot, GameObject> _itemsDisplayed = new();
         private Transform[] _slots;
+
+        private enum InventoryDisplayState { Hidden, InProgress, Shown };
+        private InventoryDisplayState _displayState = InventoryDisplayState.Hidden;
 
         private void Start()
         {
@@ -21,7 +29,32 @@ namespace CaveGame
 
         private void Update()
         {
-            //UpdateDisplay();
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                ToggleInventory(ref _displayState);
+            }
+        }
+
+        private void ToggleInventory(ref InventoryDisplayState state)
+        {
+            switch (state)
+            {
+                case InventoryDisplayState.Hidden:
+                    state = InventoryDisplayState.InProgress;
+                    transform.DOLocalMove(_shownPosition, 0.5f).SetEase(Ease.OutBack).OnComplete(() => _displayState = InventoryDisplayState.Shown);
+                    break;
+
+                case InventoryDisplayState.InProgress:
+                    break;
+
+                case InventoryDisplayState.Shown:
+                    state = InventoryDisplayState.InProgress;
+                    transform.DOLocalMove(_hiddenPosition, 0.5f).SetEase(Ease.InBack).OnComplete(() => _displayState = InventoryDisplayState.Hidden);
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void CreateDisplay()

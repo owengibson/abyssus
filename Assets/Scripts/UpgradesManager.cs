@@ -8,8 +8,9 @@ namespace CaveGame
     {
         [SerializeField] private ShopItemSO _item;
         [SerializeField] private InventorySO _inventory;
-        [SerializeField] private GameObject _boughtScreen;
-        [SerializeField] private GameObject _insufficientItems;
+        //[SerializeField] private GameObject _boughtScreen;
+        //[SerializeField] private GameObject _insufficientItems;
+        [SerializeField] private GameObject _craftingCanvas;
 
         public void BuyUpgrade()
         {
@@ -49,12 +50,22 @@ namespace CaveGame
                 }
                 _inventory.Container = newContainer;
                 Debug.Log("Item bought");
-                GameStats.Instance.Stats.ItemsBought++;
-                _boughtScreen.SetActive(true);
+                //GameStats.Instance.Stats.ItemsBought++;
+                EventManager.OnItemBuy?.Invoke(_item);
+                _craftingCanvas.SetActive(false);
+
             }
             else
             {
-                _insufficientItems.SetActive(true);
+                //_insufficientItems.SetActive(true);
+            }
+        }
+
+        private void Start()
+        {
+            if (GameStats.Instance.Stats.CavesVisited % 2 == 1)
+            {
+                _craftingCanvas.SetActive(true);
             }
         }
     }
