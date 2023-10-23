@@ -31,10 +31,20 @@ namespace CaveGame
             if (_enemiesInRange.IsNullOrEmpty()) return;
 
             PrimaryFire(_enemiesInRange.First().transform.position);
-            if (TargetHealth <= 0)
-            {
-                _enemiesInRange.Remove(_enemiesInRange.First());
-            }
+        }
+
+        private void RemoveGameObjectFromList(GameObject gameObject)
+        {
+            _enemiesInRange.Remove(gameObject);
+        }
+
+        private void OnEnable()
+        {
+            EventManager.OnEnemyDie += RemoveGameObjectFromList;
+        }
+        private void OnDisable()
+        {
+            EventManager.OnEnemyDie -= RemoveGameObjectFromList;
         }
     }
 }

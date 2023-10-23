@@ -106,6 +106,7 @@ namespace CaveGame
             {
                 Instantiate(drop.Prefab, new Vector2(transform.position.x + Random.Range(-1f, 1f), transform.position.y + Random.Range(-1f, 1f)), Quaternion.identity);
             }
+            EventManager.OnEnemyDie?.Invoke(gameObject);
             Destroy(gameObject);
         }
 

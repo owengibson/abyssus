@@ -8,9 +8,6 @@ namespace CaveGame
 {
     public class Weapon : MonoBehaviour
     {
-        public Action<IDamageable> OnProjectileHit;
-        public float TargetHealth = 9999;
-
         [SerializeField] private WeaponStatsSO _stats;
         [SerializeField] private GameObject _projectilePrefab;
         [SerializeField] private float _projectileSpeed;
@@ -36,9 +33,9 @@ namespace CaveGame
             StartCoroutine(AttackCooldown(_stats.AttackCooldown));
         }
 
-        private void DamageTarget(IDamageable target)
+        public void DamageTarget(IDamageable target)
         {
-            TargetHealth = target.TakeDamage(_stats.Damage);
+            target.TakeDamage(_stats.Damage);
         }
 
         private IEnumerator AttackCooldown(float cooldown)
@@ -46,15 +43,6 @@ namespace CaveGame
             _isAttackOnCooldown = true;
             yield return new WaitForSeconds(cooldown);
             _isAttackOnCooldown = false;
-        }
-
-        private void OnEnable()
-        {
-            OnProjectileHit += DamageTarget;
-        }
-        private void OnDisable()
-        {
-            OnProjectileHit -= DamageTarget;
         }
     }
 }

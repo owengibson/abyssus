@@ -13,7 +13,7 @@ namespace CaveGame
             if (!collision.gameObject.CompareTag("Enemy")) return;
             collision.gameObject.TryGetComponent<IDamageable>(out var enemy);
 
-            ParentWeapon.OnProjectileHit?.Invoke(enemy);
+            ParentWeapon.DamageTarget(enemy);
             Destroy(gameObject);
         }
     }

@@ -118609,11 +118609,6 @@ MonoBehaviour:
       Data: 
   _spawnPoints:
   - {fileID: 1106953453}
-  - {fileID: 1420732005}
-  - {fileID: 1429242448}
-  - {fileID: 1057636264}
-  - {fileID: 1896651173}
-  - {fileID: 395497917}
   - {fileID: 1975771764}
   - {fileID: 1028546771}
   _timeBetweenWaves: 10
@@ -119218,7 +119213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e874b0ca9e71b46bb0d469bdd8777c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetHealth: 9999
   _stats: {fileID: 11400000, guid: 5c3daf1630074ab46b8b550838425b9b, type: 2}
   _projectilePrefab: {fileID: 1597500853671498419, guid: ef88f44f12c130c47b79201983ded04b, type: 3}
   _projectileSpeed: 1000
