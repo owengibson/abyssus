@@ -15,4 +15,4 @@ MonoBehaviour:
   MaxHealth: 25
   Damage: 5
   AttackRange: 1000000
-  AttackCooldown: 0.3
+  AttackCooldown: 2

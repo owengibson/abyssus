@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Autonomous Weapon Stats
   m_EditorClassIdentifier: 
   Damage: 1
-  AttackCooldown: 0.2
+  AttackCooldown: 2

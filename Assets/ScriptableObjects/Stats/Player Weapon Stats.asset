@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player Weapon Stats
   m_EditorClassIdentifier: 
   Damage: 2
-  AttackCooldown: 0.5
+  AttackCooldown: 1

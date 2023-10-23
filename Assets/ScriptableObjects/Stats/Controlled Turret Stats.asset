@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Controlled Turret Stats
   m_EditorClassIdentifier: 
   Damage: 5
-  AttackCooldown: 0.3
+  AttackCooldown: 1
