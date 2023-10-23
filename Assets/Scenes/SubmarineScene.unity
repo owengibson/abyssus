@@ -113694,7 +113694,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 15
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 19
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -113964,7 +113964,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 7
-      m_TileSpriteIndex: 14
+      m_TileSpriteIndex: 15
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -114574,7 +114574,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 12
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -114843,22 +114843,22 @@ Tilemap:
     m_Data: {fileID: -819384959, guid: e193638efe468c1468691dc3e5ad662d, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 895204257, guid: e193638efe468c1468691dc3e5ad662d, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -958470562, guid: e193638efe468c1468691dc3e5ad662d, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 494111365, guid: e193638efe468c1468691dc3e5ad662d, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 1b9930e1a36f02749b75a0d0cdbafa3b, type: 3}
+    m_Data: {fileID: -958470562, guid: e193638efe468c1468691dc3e5ad662d, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -113355273, guid: e193638efe468c1468691dc3e5ad662d, type: 3}
+    m_Data: {fileID: 21300000, guid: 1b9930e1a36f02749b75a0d0cdbafa3b, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 9191f9609cff96742aeb8f16ca34adee, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1722225192, guid: e193638efe468c1468691dc3e5ad662d, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1018561038, guid: e193638efe468c1468691dc3e5ad662d, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -113355273, guid: e193638efe468c1468691dc3e5ad662d, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 112
     m_Data:
@@ -118104,6 +118104,11 @@ MonoBehaviour:
       Data: 
   _spawnPoints:
   - {fileID: 1106953453}
+  - {fileID: 1420732005}
+  - {fileID: 1429242448}
+  - {fileID: 1057636264}
+  - {fileID: 1896651173}
+  - {fileID: 395497917}
   - {fileID: 1975771764}
   - {fileID: 1028546771}
   _timeBetweenWaves: 10
