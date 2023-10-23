@@ -17,9 +17,9 @@ namespace CaveGame
         {
             _grid = GetComponent<Grid>();
 
-            foreach(var item in _placedItems.PlacedItems.Keys)
+            foreach(var item in _placedItems.PlacedItems)
             {
-                Instantiate(item.Prefab, _placedItems.PlacedItems[item]);
+                Instantiate(item.Item.Prefab, item.Position, Quaternion.Euler(item.Rotation));
             }
         }
 
@@ -51,7 +51,8 @@ namespace CaveGame
                     _isPlaced = true;
                     currentPlaceableTurret.enabled = true;
                     _currentPlaceable.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-                    _placedItems.PlacedItems.Add(currentPlaceableTurret.Item, _currentPlaceable.transform);
+                    Transform copiedTransform = _currentPlaceable.transform;
+                    _placedItems.PlacedItems.Add(new PlacedItem(currentPlaceableTurret.Item, _currentPlaceable.transform.position, _currentPlaceable.transform.eulerAngles));
                 }
             }
         }

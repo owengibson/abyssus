@@ -117060,63 +117060,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732401923}
   m_CullTransparentMesh: 1
---- !u!1001 &1733905761
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 345567040071543142, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.9866476
-      objectReference: {fileID: 0}
-    - target: {fileID: 345567040071543142, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.987136
-      objectReference: {fileID: 0}
-    - target: {fileID: 345567040071543142, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 345567040071543142, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 345567040071543142, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 345567040071543142, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 345567040071543142, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 345567040071543142, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 345567040071543142, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 345567040071543142, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7796470866032583156, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
-      propertyPath: m_Name
-      value: Autonomous Turret
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
 --- !u!1 &1749420465
 GameObject:
   m_ObjectHideFlags: 0
@@ -119393,4 +119336,3 @@ SceneRoots:
   - {fileID: 1333827765}
   - {fileID: 1000510547}
   - {fileID: 345567039797094463}
-  - {fileID: 1733905761}
