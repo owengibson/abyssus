@@ -11,7 +11,7 @@ namespace CaveGame
         private WaterPlayerController _playerController;
 
         private float _currentHealth;
-        private bool _isAttackOnCooldown = false;
+        //private bool _isAttackOnCooldown = false;
 
         private void Awake()
         {
@@ -20,15 +20,15 @@ namespace CaveGame
             _currentHealth = _stats.MaxHealth;
         }
 
-        private void Attack(EnemyAI target)
+/*        private void Attack(Enemy target)
         {
             if (_playerController.CurrentMode == WaterPlayerController.PlayerMode.Terrain) return;
             if (Vector2.Distance(transform.position, target.transform.position) <= _stats.AttackRange && !_isAttackOnCooldown)
             {
                 StartCoroutine(AttackCooldown(_stats.AttackCooldown));
-                target.TakeDamage(_stats.Damage);
+                target.GetComponent<IDamageable>().TakeDamage(_stats.Damage);
             }
-        }
+        }*/
 
         public float TakeDamage(float amount)
         {
@@ -52,21 +52,21 @@ namespace CaveGame
             enabled = false;
         }
 
-        private IEnumerator AttackCooldown(float cooldown)
+/*        private IEnumerator AttackCooldown(float cooldown)
         {
             _isAttackOnCooldown = true;
             yield return new WaitForSeconds(cooldown);
             _isAttackOnCooldown = false;
-        }
+        }*/
 
         private void OnEnable()
         {
-            EventManager.OnEnemyClicked += Attack;
+            //EventManager.OnEnemyClicked += Attack;
             EventManager.OnPlayerDeath += DisablePlayer;
         }
         private void OnDisable()
         {
-            EventManager.OnEnemyClicked -= Attack;
+            //EventManager.OnEnemyClicked -= Attack;
             EventManager.OnPlayerDeath -= DisablePlayer;
         }
     }

@@ -18,12 +18,14 @@ namespace CaveGame
         [SerializeField] private GameObject _terrainModeBorderPrefab;
 
         private Rigidbody2D _rigidbody2D;
+        private Weapon _weapon;
 
         public PlayerMode CurrentMode = PlayerMode.Normal;
 
         private void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _weapon = GetComponent<Weapon>();
 
             Cursor.SetCursor(_defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
         }
@@ -84,6 +86,12 @@ namespace CaveGame
             if (Input.GetMouseButtonDown(0) && CurrentMode == PlayerMode.Terrain && Vector2.Distance(transform.position, pos) <= _pickupRange)
             {
                 EventManager.OnTerrainEdit?.Invoke(new Vector3(pos.x, pos.y, 0));
+            }
+
+            else if (Input.GetMouseButtonDown(0) && CurrentMode == PlayerMode.Normal)
+            {
+                // shooting
+                _weapon.PrimaryFire(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             }
         }
 

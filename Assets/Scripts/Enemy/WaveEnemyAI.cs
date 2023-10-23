@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace CaveGame
 {
-    public class WaveEnemyAI : MonoBehaviour, IDamageable, IPointerClickHandler
+    public class WaveEnemyAI : Enemy, IDamageable, IPointerClickHandler
     {
         public EnemySO Enemy;
         public Transform Target;

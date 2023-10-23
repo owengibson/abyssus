@@ -20,7 +20,7 @@ namespace CaveGame
             _currentHealth = _stats.MaxHealth;
         }
 
-        private void Attack(WaveEnemyAI target)
+/*        private void Attack(WaveEnemyAI target)
         {
             if (_playerController.CurrentMode == SubmarinePlayerController.PlayerMode.Default) return;
             if (Vector2.Distance(transform.position, target.transform.position) <= _stats.AttackRange && !_isAttackOnCooldown)
@@ -28,7 +28,7 @@ namespace CaveGame
                 StartCoroutine(AttackCooldown(_stats.AttackCooldown));
                 target.TakeDamage(_stats.Damage);
             }
-        }
+        }*/
 
         public float TakeDamage(float amount)
         {
@@ -47,20 +47,22 @@ namespace CaveGame
             UnityEngine.SceneManagement.SceneManager.LoadScene("EndScene");
         }
 
-        private IEnumerator AttackCooldown(float cooldown)
+/*        private IEnumerator AttackCooldown(float cooldown)
         {
             _isAttackOnCooldown = true;
             yield return new WaitForSeconds(cooldown);
             _isAttackOnCooldown = false;
-        }
+        }*/
 
         private void OnEnable()
         {
-            EventManager.OnWaveEnemyClicked += Attack;
+            //EventManager.OnWaveEnemyClicked += Attack;
+            EventManager.OnSubmarineTakeDamage += TakeDamage;
         }
         private void OnDisable()
         {
-            EventManager.OnWaveEnemyClicked -= Attack;
+            //EventManager.OnWaveEnemyClicked -= Attack;
+            EventManager.OnSubmarineTakeDamage -= TakeDamage;
         }
     }
 }

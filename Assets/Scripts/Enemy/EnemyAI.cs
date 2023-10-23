@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace CaveGame
 {
-    public class EnemyAI : MonoBehaviour, IDamageable, IPointerClickHandler
+    public class EnemyAI : Enemy, IDamageable, IPointerClickHandler
     {
         public EnemyState CurrentState = EnemyState.Patrol;
         public Transform Target;

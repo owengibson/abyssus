@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 2022505343983482423}
   m_Layer: 6
   m_Name: Piranha
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,11 +234,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: 1
   Target: {fileID: 0}
-  _enemy: {fileID: 11400000, guid: ab78c352445fa5642889504900d5001e, type: 2}
+  Enemy: {fileID: 0}
   _spriteRenderer: {fileID: 1141143095830436904}
   _rigidbody2D: {fileID: 9135194884130098983}
   _healthBar: {fileID: 5780079223765177161}
-  _detectionRadius: 25
   _nextWaypointDistance: 3
 --- !u!114 &2022505343983482423
 MonoBehaviour:

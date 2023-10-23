@@ -37,7 +37,7 @@ namespace CaveGame
             {
                 Vector3 pos = _grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                 _currentPlaceable.transform.position = pos;
-                Turret currentPlaceableTurret = _currentPlaceable.GetComponent<Turret>();
+                AutonomousTurret currentPlaceableTurret = _currentPlaceable.GetComponent<AutonomousTurret>();
                 currentPlaceableTurret.enabled = false;
 
                 if (Input.GetKeyDown(KeyCode.R))

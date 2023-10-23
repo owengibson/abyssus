@@ -37,7 +37,7 @@ namespace CaveGame
         {
             foreach (var wave in _waves)
             {
-                foreach(var enemyType in wave.Keys)
+                foreach (var enemyType in wave.Keys)
                 {
                     for (int i = 0; i < wave[enemyType]; i++)
                     {
