@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8025ff56ef1d1224f8199d6487535a78, type: 3}
   m_Name: Autonomous Weapon Stats
   m_EditorClassIdentifier: 
-  Damage: 1
-  AttackCooldown: 2
+  Damage: 4
+  AttackCooldown: 1
