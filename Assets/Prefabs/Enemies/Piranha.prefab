@@ -239,6 +239,7 @@ MonoBehaviour:
   _rigidbody2D: {fileID: 9135194884130098983}
   _healthBar: {fileID: 5780079223765177161}
   _nextWaypointDistance: 3
+  _graphMask: EnemyGraph
 --- !u!114 &2022505343983482423
 MonoBehaviour:
   m_ObjectHideFlags: 0

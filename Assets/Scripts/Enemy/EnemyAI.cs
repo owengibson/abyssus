@@ -23,6 +23,7 @@ namespace CaveGame
 
         //[SerializeField] private Transform _target;
         [SerializeField] private float _nextWaypointDistance = 3f;
+        [SerializeField] private string _graphMask;
 
         private float _currentHealth;
 
@@ -45,6 +46,7 @@ namespace CaveGame
             _seeker = GetComponent<Seeker>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
 
+            _seeker.graphMask = GraphMask.FromGraphName(_graphMask);
             //StartCoroutine(UpdatePath());
         }
 
