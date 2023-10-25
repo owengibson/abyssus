@@ -189,8 +189,8 @@ MonoBehaviour:
     Left
     click to attack/pickup/dig'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9b63aaed67c516d4b89e4519b4097585, type: 2}
-  m_sharedMaterial: {fileID: -1633439345825257159, guid: 9b63aaed67c516d4b89e4519b4097585, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9ec1c39cd62dd554c95927c8af125d2e, type: 2}
+  m_sharedMaterial: {fileID: 5360472389388489438, guid: 9ec1c39cd62dd554c95927c8af125d2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -214,13 +214,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
-  m_fontSizeBase: 56
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -469,8 +469,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9b63aaed67c516d4b89e4519b4097585, type: 2}
-  m_sharedMaterial: {fileID: -1633439345825257159, guid: 9b63aaed67c516d4b89e4519b4097585, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9ec1c39cd62dd554c95927c8af125d2e, type: 2}
+  m_sharedMaterial: {fileID: 5360472389388489438, guid: 9ec1c39cd62dd554c95927c8af125d2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -494,13 +494,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -604,8 +604,8 @@ MonoBehaviour:
   m_text: Your goal is to explore the caves and collect the necessary materials for
     an upgrade
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9b63aaed67c516d4b89e4519b4097585, type: 2}
-  m_sharedMaterial: {fileID: -1633439345825257159, guid: 9b63aaed67c516d4b89e4519b4097585, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9ec1c39cd62dd554c95927c8af125d2e, type: 2}
+  m_sharedMaterial: {fileID: 5360472389388489438, guid: 9ec1c39cd62dd554c95927c8af125d2e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -629,13 +629,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56
-  m_fontSizeBase: 56
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
