@@ -118715,7 +118715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 5c3daf1630074ab46b8b550838425b9b, type: 2}
   _projectilePrefab: {fileID: 1597500853671498419, guid: ef88f44f12c130c47b79201983ded04b, type: 3}
-  _projectileSpeed: 1000
+  _projectileSpeed: 25
   _popup: {fileID: 5991873605070470908}
 --- !u!4 &7748602967744720708
 Transform:

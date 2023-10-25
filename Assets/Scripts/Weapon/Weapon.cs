@@ -27,7 +27,8 @@ namespace CaveGame
 
             GameObject firedProjectile = Instantiate(_projectilePrefab, transform.position, rot);
             Vector3 direction = (targetPosition - transform.position).normalized;
-            firedProjectile.GetComponent<Rigidbody2D>().AddForce(direction * _projectileSpeed);
+            //firedProjectile.GetComponent<Rigidbody2D>().AddForce(direction * _projectileSpeed);
+            firedProjectile.GetComponent<Rigidbody2D>().velocity = direction * _projectileSpeed;
             firedProjectile.GetComponent<WeaponProjectile>().ParentWeapon = this;
 
             StartCoroutine(AttackCooldown(_stats.AttackCooldown));

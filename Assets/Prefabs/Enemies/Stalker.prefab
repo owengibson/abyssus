@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6404952017186071302}
   - component: {fileID: 5992572855631985864}
   - component: {fileID: 5842689766668876372}
-  - component: {fileID: 1694555815389092429}
+  - component: {fileID: 7822334330896395143}
   m_Layer: 0
   m_Name: Stalker
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1904561261479575774}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.25, y: 7.97, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -64,7 +64,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.15}
@@ -106,8 +106,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1694555815389092429
+  m_Constraints: 4
+--- !u!114 &7822334330896395143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,17 +116,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1904561261479575774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a128b30160f05834cbc86f4b9044d71f, type: 3}
+  m_Script: {fileID: 11500000, guid: 30ba282799e041c498167f982f899d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentState: 0
-  Target: {fileID: 0}
-  Enemy: {fileID: 11400000, guid: 7a6297648851ea242b7507c33fb1b6bf, type: 2}
-  _spriteRenderer: {fileID: 8444529554510690543}
-  _rigidbody2D: {fileID: 5842689766668876372}
-  _healthBar: {fileID: 0}
-  _nextWaypointDistance: 3
-  _graphMask: StalkerGraph
+  _chaseSpeed: 7.5
 --- !u!1 &5621211259201214293
 GameObject:
   m_ObjectHideFlags: 0

@@ -199,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: e0630ccfd665f9945a8c45d68ea278d8, type: 2}
   _projectilePrefab: {fileID: 1597500853671498419, guid: ef88f44f12c130c47b79201983ded04b, type: 3}
-  _projectileSpeed: 1000
+  _projectileSpeed: 25
 --- !u!1 &2503511553904483029
 GameObject:
   m_ObjectHideFlags: 0

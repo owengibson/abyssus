@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,10 @@ namespace CaveGame
     {
         [SerializeField] private Image _stageOne, _stageTwo, _stageThree;
         [SerializeField] private float _stageZeroTime, _stageOneTime, _stageTwoTime, _stageThreeTime;
+        [Space]
+
+        [SerializeField] private GameObject _stalkerPrefab;
+        [SerializeField] private CanvasGroup _stalkerText;
 
         private IEnumerator StageZero(float time)
         {
@@ -59,7 +64,15 @@ namespace CaveGame
 
                 yield return null;
             }
-            EventManager.OnPlayerDeath?.Invoke();
+
+            _stalkerText.gameObject.SetActive(true);
+            _stalkerText.DOFade(0.5f, 2f).OnComplete(() => Invoke("DisableStalkerText", 5));
+            Instantiate(_stalkerPrefab);
+        }
+
+        private void DisableStalkerText()
+        {
+            _stalkerText.DOFade(0, 2).OnComplete(() => _stalkerText.gameObject.SetActive(false));
         }
 
         private void Start()

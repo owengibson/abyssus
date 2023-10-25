@@ -302,11 +302,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844ecf96c69b01d418175526a6bc7c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetHealth: 0
   _stats: {fileID: 11400000, guid: dc2858fb60a8f0e4db52104d9fdb2d6e, type: 2}
   _projectilePrefab: {fileID: 1597500853671498419, guid: ef88f44f12c130c47b79201983ded04b, type: 3}
-  _projectileSpeed: 1000
+  _projectileSpeed: 25
   Item: {fileID: 11400000, guid: 93477f775a1a2474992ace69f607777a, type: 2}
+  _enemiesInRange: []
 --- !u!1 &8414480718351306529
 GameObject:
   m_ObjectHideFlags: 0
