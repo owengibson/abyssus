@@ -9,6 +9,10 @@ namespace CaveGame
         [SerializeField] private GameObject _playerPrefab;
         [SerializeField] private MapGenerator _mapGenerator;
         [SerializeField] private int _spawnSearchRange;
+        [Space]
+
+        [SerializeField] private GameObject _returnMarkerPrefab;
+        [Space]
 
         public GameObject Player;
         public GameObject PlayerParent;
@@ -53,9 +57,13 @@ namespace CaveGame
         private void SpawnPlayer()
         {
             if (Player != null) return;
-            PlayerParent = Instantiate(_playerPrefab, CalculatePlayerSpawnPos(), Quaternion.identity);
+            Vector2 spawnPos = CalculatePlayerSpawnPos();
+            PlayerParent = Instantiate(_playerPrefab, spawnPos, Quaternion.identity);
             Debug.Log("Player spawned");
             Player = PlayerParent.GetComponentInChildren<WaterPlayerController>().gameObject;
+
+            Instantiate(_returnMarkerPrefab, spawnPos, Quaternion.identity);
+
         }
 
         private void OnEnable()
