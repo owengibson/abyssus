@@ -12,6 +12,7 @@ namespace CaveGame
         [SerializeField] private int _width;
         [SerializeField] private int _height;
 
+        [ShowIf("@!_useRandomSeed")]
         [SerializeField] private string _seed;
         [SerializeField] private bool _useRandomSeed;
 
