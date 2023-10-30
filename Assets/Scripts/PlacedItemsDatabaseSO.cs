@@ -6,9 +6,11 @@ using UnityEngine;
 namespace CaveGame
 {
     [CreateAssetMenu(fileName = "New Placed Items Database", menuName = "Placed Items Database")]
-    public class PlacedItemsDatabaseSO : SerializedScriptableObject
+    public class PlacedItemsDatabaseSO : ScriptableObject
     {
         public List<PlacedItem> PlacedItems = new();
+
+        private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
     }
 
     [System.Serializable]
