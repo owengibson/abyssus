@@ -8,7 +8,7 @@ namespace CaveGame
     public class EventManager : MonoBehaviour
     {
         public static Action OnMapGenerated;
-        public static Action<Item> OnItemClicked;
+        public static Action<Item> OnItemCollided;
         public static Action OnItemAddedToInventory;
         public static Action<Vector3> OnTerrainEdit;
         public static Action OnTerrainModeToggle;

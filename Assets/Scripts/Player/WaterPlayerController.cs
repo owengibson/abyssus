@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,10 +57,11 @@ namespace CaveGame
 
         private void PickupItem(Item item)
         {
-            if (Vector2.Distance(transform.position, item.transform.position) > _pickupRange) return;
+            //if (Vector2.Distance(transform.position, item.transform.position) > _pickupRange) return;
 
             _inventory.AddItem(item.p_Item, 1);
-            Destroy(item.gameObject);
+            item.transform.DOMove(transform.position, 0.25f).OnComplete(() => Destroy(item.gameObject));
+            item.transform.DOScale(0, 0.25f);
             EventManager.OnItemAddedToInventory?.Invoke();
         }
 
@@ -97,11 +99,11 @@ namespace CaveGame
 
         private void OnEnable()
         {
-            EventManager.OnItemClicked += PickupItem;
+            EventManager.OnItemCollided += PickupItem;
         }
         private void OnDisable()
         {
-            EventManager.OnItemClicked -= PickupItem;
+            EventManager.OnItemCollided -= PickupItem;
         }
     }
 }

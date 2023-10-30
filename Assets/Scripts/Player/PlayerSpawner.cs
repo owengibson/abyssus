@@ -12,6 +12,7 @@ namespace CaveGame
         [Space]
 
         [SerializeField] private GameObject _returnMarkerPrefab;
+        [SerializeField] private GameObject _returnTriggerPrefab;
         [Space]
 
         public GameObject Player;
@@ -63,6 +64,7 @@ namespace CaveGame
             Player = PlayerParent.GetComponentInChildren<WaterPlayerController>().gameObject;
 
             Instantiate(_returnMarkerPrefab, spawnPos, Quaternion.identity);
+            Instantiate(_returnTriggerPrefab, spawnPos, Quaternion.identity);
 
         }
 
