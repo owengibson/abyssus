@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Player Stats
   m_EditorClassIdentifier: 
   MaxHealth: 10
-  Damage: 2
+  Damage: 3
   AttackRange: 6
   AttackCooldown: 0.5
