@@ -60,7 +60,6 @@ namespace CaveGame
         private void CreateDisplay()
         {
             Transform[] slots = GetComponentsInChildren<Transform>();
-            Debug.Log(slots.Length);
 
             for (int i = 0; i < _inventory.Container.Count; i++)
             {
