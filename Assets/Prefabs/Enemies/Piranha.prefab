@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState: 1
   Target: {fileID: 0}
-  Enemy: {fileID: 0}
+  Enemy: {fileID: 11400000, guid: ab78c352445fa5642889504900d5001e, type: 2}
   _spriteRenderer: {fileID: 1141143095830436904}
   _rigidbody2D: {fileID: 9135194884130098983}
   _healthBar: {fileID: 5780079223765177161}

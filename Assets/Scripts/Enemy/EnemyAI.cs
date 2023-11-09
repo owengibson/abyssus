@@ -38,10 +38,7 @@ namespace CaveGame
         {
             _currentHealth = Enemy.MaxHealth;
 
-            if (Target == null)
-            {
-                Target = PlayerSpawner.Instance.Player.transform;
-            }
+            Target = PlayerSpawner.Instance.Player.transform;
 
             _seeker = GetComponent<Seeker>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -106,6 +103,11 @@ namespace CaveGame
 
         private void Update()
         {
+            /*if (Target == null)
+            {
+                Target = PlayerSpawner.Instance.Player.transform;
+            }*/
+
             if (Vector2.Distance(_rigidbody2D.position, Target.position) <= Enemy.AttackRange && CurrentState != EnemyState.Attack && !_isAttackOnCooldown)
             {
                 // ATTACK

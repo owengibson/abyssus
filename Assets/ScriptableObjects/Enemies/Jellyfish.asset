@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fab7a7fcbefb82408239cd6101e6e81, type: 3}
+  m_Name: Jellyfish
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 7147138580620688211, guid: 0e176c50ad70e714393a7176a60e7cbd, type: 3}
+  Name: Jellyfish
+  MaxHealth: 1
+  Damage: 3
+  ChaseSpeed: 0
+  AttackCooldown: 0
+  AttackRange: 0
+  DetectionRadius: 0
+  PatrolDistance: 0
+  Drops: []

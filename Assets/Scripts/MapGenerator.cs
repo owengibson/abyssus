@@ -185,24 +185,29 @@ namespace CaveGame
             foreach (EnemySO enemy in _enemiesToGenerate.Keys)
             {
                 Debug.Log($"Spawning {_enemiesToGenerate[enemy]} of {enemy.Name}");
-                while (_generatedEnemies.Count < _enemiesToGenerate[enemy])
+
+                for (int i = 0; i < _enemiesToGenerate[enemy]; i++)
                 {
                     int x = UnityEngine.Random.Range(0, _width);
                     int y = UnityEngine.Random.Range(0, _height);
 
-                    if (Map[x, y] == 1) continue;
-                    for (int j = -5; j < 6; j++)
+                    if (Map[x, y] == 1)
                     {
-                        if (Map[x + j, y] == 1 || Map[x + j, y + 1] == 1) continue;
-
-                        // SUITABLE SPAWN LOCATION
-                        var generatedEnemy = Instantiate(enemy.Prefab, new Vector2(x, y), Quaternion.identity);
-                        _generatedEnemies.Add(generatedEnemy);
-                        var generatedEnemyAI = generatedEnemy.GetComponent<EnemyAI>();
-                        generatedEnemyAI.Target = PlayerSpawner.Instance.Player.transform;
-                        generatedEnemyAI.Enemy = enemy;
-                        break;
+                        i--;
+                        continue;
                     }
+                    /*for (int j = -5; j < 6; j++)
+                    {
+                    }*/
+                    if (Map[x - 1, y] == 1 || Map[x - 1, y - 1] == 1 || Map[x, y - 1] == 1)
+                    {
+                        i--;
+                        continue;
+                    }
+
+                    // SUITABLE SPAWN LOCATION
+                    var generatedEnemy = Instantiate(enemy.Prefab, new Vector2(x, y), Quaternion.identity);
+                    _generatedEnemies.Add(generatedEnemy);
                 }
             }
         }
