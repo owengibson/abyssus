@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7446786925126011783}
   - component: {fileID: 8922622839149570021}
   - component: {fileID: 2151401077822966574}
+  - component: {fileID: 7816413993134302093}
   m_Layer: 0
   m_Name: JellyFishAttack
   m_TagString: Untagged
@@ -120,6 +121,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jellyfish: {fileID: 8124736995465554208}
+--- !u!58 &7816413993134302093
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981307832556817247}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &5668371974435433198
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,10 +167,9 @@ GameObject:
   - component: {fileID: 3592770324008833377}
   - component: {fileID: 1511743034800018860}
   - component: {fileID: 417975150923082862}
-  - component: {fileID: 977971222014928281}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,27 +262,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &977971222014928281
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5668371974435433198}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7147138580620688211
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,11 +271,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1521087427073926268}
-  - component: {fileID: 3267894162425805494}
   - component: {fileID: 8124736995465554208}
+  - component: {fileID: 9029818807062297572}
   m_Layer: 0
   m_Name: JellyFish
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,8 +297,22 @@ Transform:
   - {fileID: 8582821089779780191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &3267894162425805494
-CircleCollider2D:
+--- !u!114 &8124736995465554208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147138580620688211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e801f4538877ec4599d65831db18ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 11400000, guid: 7f17cfc40792a9a45b51961d0f20f158, type: 2}
+  Target: {fileID: 0}
+--- !u!61 &9029818807062297572
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -312,24 +340,19 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 5
---- !u!114 &8124736995465554208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7147138580620688211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e801f4538877ec4599d65831db18ade, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemy: {fileID: 11400000, guid: 7f17cfc40792a9a45b51961d0f20f158, type: 2}
-  Target: {fileID: 0}
-  _attackAnimator: {fileID: 7446786925126011783}
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
