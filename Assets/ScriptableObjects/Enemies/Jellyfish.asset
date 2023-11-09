@@ -21,4 +21,5 @@ MonoBehaviour:
   AttackRange: 0
   DetectionRadius: 0
   PatrolDistance: 0
-  Drops: []
+  Drops:
+  - {fileID: 11400000, guid: 0568cca891833b44f8d52ea4154c344a, type: 2}
