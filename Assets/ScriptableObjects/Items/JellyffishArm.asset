@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   Type: 1
-  UIPrefab: {fileID: 0}
+  UIPrefab: {fileID: 2630284329719212038, guid: 19d2c191f9c254e49b66f31574901453, type: 3}
   Prefab: {fileID: 5213094913257845846, guid: fef2e280d63b8d44e89abd871e767b98, type: 3}
   Name: 
   Description: Electric resedue left from a dead jellyfish
