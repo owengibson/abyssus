@@ -9,6 +9,8 @@ namespace CaveGame
     {
         public List<InventorySlot> Container = new();
 
+        private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
+
         public void AddItem(ItemSO item, int amount)
         {
             bool hasItem = false;
