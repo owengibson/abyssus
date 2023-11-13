@@ -17,6 +17,7 @@ namespace CaveGame
         [SerializeField] private Texture2D _defaultCursor;
         [SerializeField] private Texture2D _terrainModeCursor;
         [SerializeField] private GameObject _terrainModeBorderPrefab;
+        [SerializeField] private GameObject _drill;
 
         private Rigidbody2D _rigidbody2D;
         private Weapon _weapon;
@@ -75,20 +76,22 @@ namespace CaveGame
                     CurrentMode = PlayerMode.Normal;
                     Cursor.SetCursor(_defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
                     Debug.Log("Exited terrain edit mode");
+                    _drill.SetActive(false);
                 }
                 else
                 {
                     CurrentMode = PlayerMode.Terrain;
                     Cursor.SetCursor(_terrainModeCursor, Vector2.zero, CursorMode.ForceSoftware);
                     Debug.Log("Entered terrain edit mode");
+                    _drill.SetActive(true);
                 }
             }
 
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            /*Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (Input.GetMouseButtonDown(0) && CurrentMode == PlayerMode.Terrain && Vector2.Distance(transform.position, pos) <= _pickupRange)
             {
                 EventManager.OnTerrainEdit?.Invoke(new Vector3(pos.x, pos.y, 0));
-            }
+            }*/
 
             else if (Input.GetMouseButtonDown(0) && CurrentMode == PlayerMode.Normal)
             {
