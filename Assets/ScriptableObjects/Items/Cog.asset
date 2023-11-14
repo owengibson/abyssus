@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45155a7efe32d049992d75b93cc17c1, type: 3}
+  m_Name: Cog
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Type: 0
+  UIPrefab: {fileID: 2630284329719212038, guid: 1ff959e23234fbc4f91c85cabc1f5094, type: 3}
+  Prefab: {fileID: 5213094913257845846, guid: 7c9c57985274f7846ba30117c3af8656, type: 3}
+  Name: 
+  Description: A cog that the play can find near shipwrecks
+  MaxHealth: 0
+  Rarity: 0
+  ProximityLimit: 0
