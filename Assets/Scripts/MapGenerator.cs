@@ -218,14 +218,22 @@ namespace CaveGame
             Debug.Log("RemoveTileAtPosition called at " + position);
             _tilemap.SetTile(Vector3Int.FloorToInt(position), _blankTile);
         }
+
+        private void UpdatePathfindingGraph(Vector3 pos)
+        {
+            AstarPath.active.UpdateGraphs(new Bounds(pos, Vector3.one * 5));
+        }
+
         private void OnEnable()
         {
             EventManager.OnTerrainEdit += RemoveTileAtPosition;
+            EventManager.OnTerrainEdit += UpdatePathfindingGraph;
         }
 
         private void OnDisable()
         {
             EventManager.OnTerrainEdit -= RemoveTileAtPosition;
+            EventManager.OnTerrainEdit -= UpdatePathfindingGraph;
 
             ClearMap();
         }

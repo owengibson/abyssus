@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,19 @@ namespace CaveGame
     public class WeaponProjectile : MonoBehaviour
     {
         public Weapon ParentWeapon;
-        private Rigidbody2D _rb;
 
-        private void Start()
+        [SerializeField] private float _despawnBufferTime = 0.15f;
+
+        private bool _canDespawn = false;
+
+        private void Awake()
         {
-            _rb = GetComponent<Rigidbody2D>();
+            Invoke("ActivateDespawnability", _despawnBufferTime);
+        }
+
+        private void ActivateDespawnability()
+        {
+            _canDespawn = true;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -25,13 +34,9 @@ namespace CaveGame
             }
             else if (collision.gameObject.CompareTag("Ground"))
             {
+                if (!_canDespawn) return;
                 Destroy(gameObject);
             }
-        }
-
-        private void Update()
-        {
-            Debug.Log(_rb.velocity.magnitude);
         }
     }
 }
