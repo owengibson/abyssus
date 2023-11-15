@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentWeapon: {fileID: 0}
+  _despawnBufferTime: 0.15
 --- !u!1 &8919218930116772807
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +173,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f146a537cdae3ef47a30f9847faf7890, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
