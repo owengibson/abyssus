@@ -100,6 +100,13 @@ namespace CaveGame
             }
         }
 
+        public void DrillBounceback(Vector2 direction)
+        {
+            Debug.Log(direction);
+            // this doesn't work :(
+            _rigidbody2D.velocity = direction * 3;
+        }
+
         private void OnEnable()
         {
             EventManager.OnItemCollided += PickupItem;

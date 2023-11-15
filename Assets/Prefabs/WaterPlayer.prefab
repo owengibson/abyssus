@@ -223,8 +223,8 @@ MonoBehaviour:
   _playerSpeed: 15
   _inventory: {fileID: 11400000, guid: d2873684f35cf004289a09331666de98, type: 2}
   _pickupRange: 4
-  _defaultCursor: {fileID: 2800000, guid: 71b742e15b486ac4fb72b5aa3c7826a6, type: 3}
-  _terrainModeCursor: {fileID: 2800000, guid: f67f3270d85589f49a592c837a973836, type: 3}
+  _defaultCursor: {fileID: 2800000, guid: d6f083bd6e174744caaf03ca819e76f5, type: 3}
+  _terrainModeCursor: {fileID: 2800000, guid: f082f2561e2e54d4d8be07460ac885d7, type: 3}
   _terrainModeBorderPrefab: {fileID: 5055015163557875553, guid: 5fef48693ef0bbc44b963d932a842fe9, type: 3}
   _drill: {fileID: 1958279182142942255}
   CurrentMode: 0
@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4d4b08b05994547b82f6bd84c6c869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 5282391830498033652}
 --- !u!60 &8708164698269318467
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -483,8 +484,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.33173117, y: 0.06333542}
-      - {x: -0.047437027, y: -0.50139487}
-      - {x: 0.047414143, y: -0.50139487}
+      - {x: -0.04845428, y: -0.49529386}
+      - {x: 0.047414143, y: -0.49529392}
       - {x: 0.33287305, y: 0.06361898}
   m_UseDelaunayMesh: 0
 --- !u!1 &2503511553904483029

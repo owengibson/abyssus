@@ -215,7 +215,6 @@ namespace CaveGame
 
         private void RemoveTileAtPosition(Vector3 position)
         {
-            Debug.Log("RemoveTileAtPosition called at " + position);
             _tilemap.SetTile(Vector3Int.FloorToInt(position), _blankTile);
         }
 
