@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,7 +13,10 @@ namespace CaveGame
         [SerializeField] private InventorySO _inventory;
         [Space]
 
+        [SerializeField] private bool _canInventoryBeToggled = true;
+        [ShowIf("_canInventoryBeToggled")]
         [SerializeField] private Vector3 _hiddenPosition;
+        [ShowIf("_canInventoryBeToggled")]
         [SerializeField] private Vector3 _shownPosition;
 
         private Dictionary<InventorySlot, GameObject> _itemsDisplayed = new();
@@ -20,6 +24,7 @@ namespace CaveGame
 
         private enum InventoryDisplayState { Hidden, InProgress, Shown };
         private InventoryDisplayState _displayState = InventoryDisplayState.Hidden;
+
 
         private void Start()
         {
@@ -29,7 +34,7 @@ namespace CaveGame
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Tab) && _canInventoryBeToggled)
             {
                 ToggleInventory(ref _displayState);
             }
