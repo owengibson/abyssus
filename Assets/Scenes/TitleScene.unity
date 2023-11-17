@@ -184,10 +184,10 @@ MonoBehaviour:
 
     Mouse to look around
 
-    E to toggle dig mode on/off
+    E to toggle drill mode on/off
 
     Left
-    click to attack/pickup/dig'
+    click to attack'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9ec1c39cd62dd554c95927c8af125d2e, type: 2}
   m_sharedMaterial: {fileID: 5360472389388489438, guid: 9ec1c39cd62dd554c95927c8af125d2e, type: 2}
