@@ -18,6 +18,8 @@ namespace CaveGame
         [SerializeField] private Texture2D _terrainModeCursor;
         [SerializeField] private GameObject _terrainModeBorderPrefab;
         [SerializeField] private GameObject _drill;
+        [SerializeField] private ParticleSystem _particleSystem;
+        [SerializeField] private SpriteRenderer _playerSprite;
 
         private Rigidbody2D _rigidbody2D;
         private Weapon _weapon;
@@ -48,6 +50,15 @@ namespace CaveGame
             mouseScreenPos.y -= startingScreenPos.y;
             float angle = Mathf.Atan2(mouseScreenPos.y, mouseScreenPos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+
+            if (transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
+            {
+                _playerSprite.flipX = true;
+            }
+            else
+            {
+                _playerSprite.flipX = false;
+            }
         }
 
         private void FixedUpdate()
@@ -87,6 +98,7 @@ namespace CaveGame
                 }
             }
 
+            // old digging
             /*Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (Input.GetMouseButtonDown(0) && CurrentMode == PlayerMode.Terrain && Vector2.Distance(transform.position, pos) <= _pickupRange)
             {
@@ -97,6 +109,16 @@ namespace CaveGame
             {
                 // shooting
                 _weapon.PrimaryFire(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            }
+
+            // Particle system plays when moving
+            if (_rigidbody2D.velocity.magnitude > 0.01 && !_particleSystem.isPlaying)
+            {
+                _particleSystem.Play();
+            }
+            else
+            {
+                _particleSystem.Stop();
             }
         }
 

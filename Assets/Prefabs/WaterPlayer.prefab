@@ -103,7 +103,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5024,6 +5024,8 @@ MonoBehaviour:
   _terrainModeCursor: {fileID: 2800000, guid: f082f2561e2e54d4d8be07460ac885d7, type: 3}
   _terrainModeBorderPrefab: {fileID: 5055015163557875553, guid: 5fef48693ef0bbc44b963d932a842fe9, type: 3}
   _drill: {fileID: 1958279182142942255}
+  _particleSystem: {fileID: 3234999921801261004}
+  _playerSprite: {fileID: 8405381073454175416}
   CurrentMode: 0
 --- !u!114 &7694091143135147421
 MonoBehaviour:
