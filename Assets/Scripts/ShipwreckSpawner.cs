@@ -28,34 +28,40 @@ namespace CaveGame
             {
                 for (int x = 0; x < mapWidth / 2; x++)
                 {
+                    bool isIllegal = false;
+
                     // Is the spawn root ground? If not, find a new root.
                     if (_mapGenerator.Map[x, y] == 0) continue;
                     Debug.Log("Shipwreck root is ground");
 
                     // // Are the 4 blocks to the right of the root ground? If not, find a new root.
-                    for (int g = 0; g < 4; g++)
+                    for (int g = 1; g < 5; g++)
                     {
-                        if (_mapGenerator.Map[x + g, y] == 0) break;
+                        if (_mapGenerator.Map[x + g, y] == 0)
+                        {
+                            isIllegal = true;
+                            break;
+                        }
                     }
+                    if (isIllegal) continue;
                     Debug.Log("Shipwreck root has 5 wide ground platform");
 
                     // Is there a clear 5*5 area above and to the right of the root? If not, find a new root
-                    bool isGroundTile = false;
-                    for (int up = 0; up < 5; up++)
+                    for (int up = 1; up < 6; up++)
                     {
-                        if (isGroundTile) break;
-                        for (int across = 0; across < 4; across++)
+                        if (isIllegal) break;
+                        for (int across = 0; across < 5; across++)
                         {
                             if (_mapGenerator.Map[x + across, y + up] == 1)
                             {
-                                isGroundTile = true;
-                                Debug.Log("Tile [" + _mapGenerator.Map[x + across, y + up] + "] is [" + isGroundTile + "]");
+                                isIllegal = true;
+                                //Debug.Log("Tile [" + _mapGenerator.Map[x + across, y + up] + "] is [" + isIllegal + "]");
                                 break;
                             }
                         }
                     }
+                    if (isIllegal) continue;
                     Debug.Log("Shipwreck has a 5*5 clear area above root");
-                    Debug.Log(x + " " + y);
 
                     // Suitable spawn position found!!!
                     Vector2 spawnPos = new Vector2(x, y);
