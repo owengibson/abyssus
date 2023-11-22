@@ -20,18 +20,22 @@ namespace CaveGame
             _currentHealth -= amount;
             if (_currentHealth <= 0)
             {
-                Die();
+                Die(true);
             }
 
             return _currentHealth;
         }
 
-        public void Die()
+        public void Die(bool wasKilled)
         {
-            foreach (var drop in Enemy.Drops)
+            if (!wasKilled)
             {
-                Instantiate(drop.Prefab, new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f)), Quaternion.identity);
+                foreach (var drop in Enemy.Drops)
+                {
+                    Instantiate(drop.Prefab, new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f)), Quaternion.identity);
+                }
             }
+            
             Destroy(gameObject);
         }
     }

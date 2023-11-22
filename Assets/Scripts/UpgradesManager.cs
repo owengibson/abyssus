@@ -7,44 +7,45 @@ namespace CaveGame
 {
     public class UpgradesManager : MonoBehaviour
     {
-        [SerializeField] private ShopItemSO _item;
         [SerializeField] private InventorySO _inventory;
         //[SerializeField] private GameObject _boughtScreen;
         //[SerializeField] private GameObject _insufficientItems;
         [SerializeField] private GameObject _craftingCanvas;
 
-        public void BuyUpgrade()
+        private bool _isPlacingItem = false;
+
+        public void BuyUpgrade(ShopItemSO itemToBuy)
         {
             int completeItemCosts = 0;
-            foreach (ItemSO item in _item.Cost.Keys )
+            foreach (ItemSO item in itemToBuy.Cost.Keys )
             {
                 foreach(InventorySlot slot in _inventory.Container)
                 {
-                    if (slot.Item == item && slot.Amount >= _item.Cost[item])
+                    if (slot.Item == item && slot.Amount >= itemToBuy.Cost[item])
                     {
                         completeItemCosts++;
                     }
                 }
             }
 
-            if (completeItemCosts == _item.Cost.Keys.Count)
+            if (completeItemCosts == itemToBuy.Cost.Keys.Count)
             {
                 // BUY
                 List<InventorySlot> newContainer = new List<InventorySlot>(_inventory.Container);
 
-                foreach (ItemSO item in _item.Cost.Keys)
+                foreach (ItemSO item in itemToBuy.Cost.Keys)
                 {
                     foreach (InventorySlot slot in _inventory.Container)
                     {
-                        if (slot.Item == item && slot.Amount >= _item.Cost[item])
+                        if (slot.Item == item && slot.Amount >= itemToBuy.Cost[item])
                         {
-                            if (slot.Amount == _item.Cost[item])
+                            if (slot.Amount == itemToBuy.Cost[item])
                             {
                                 newContainer.Remove(slot);
                             }
                             else
                             {
-                                slot.Amount -= _item.Cost[item];
+                                slot.Amount -= itemToBuy.Cost[item];
                             }
                         }
                     }
@@ -52,8 +53,9 @@ namespace CaveGame
                 _inventory.Container = newContainer;
                 Debug.Log("Item bought");
                 //GameStats.Instance.Stats.ItemsBought++;
-                EventManager.OnItemBuy?.Invoke(_item);
-                EventManager.OnItemAddedToInventory?.Invoke();
+                EventManager.OnItemBuy?.Invoke(itemToBuy);
+                EventManager.OnInventoryChanged?.Invoke();
+                _isPlacingItem = true;
                 _craftingCanvas.SetActive(false);
 
             }
@@ -63,9 +65,9 @@ namespace CaveGame
             }
         }
 
-        private void Start()
+        private void Update()
         {
-            if (GameStats.Instance.Stats.CavesVisited % 2 == 1)
+            if (_isPlacingItem && Input.GetMouseButtonDown(0))
             {
                 _craftingCanvas.SetActive(true);
             }

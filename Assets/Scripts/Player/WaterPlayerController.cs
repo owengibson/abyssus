@@ -74,7 +74,7 @@ namespace CaveGame
             _inventory.AddItem(item.p_Item, 1);
             item.transform.DOMove(transform.position, 0.25f).OnComplete(() => Destroy(item.gameObject));
             item.transform.DOScale(0, 0.25f);
-            EventManager.OnItemAddedToInventory?.Invoke();
+            EventManager.OnInventoryChanged?.Invoke();
         }
 
         private void Update()
@@ -116,7 +116,7 @@ namespace CaveGame
             {
                 _particleSystem.Play();
             }
-            else
+            else if (_rigidbody2D.velocity.magnitude < 0.01 && _particleSystem.isPlaying)
             {
                 _particleSystem.Stop();
             }

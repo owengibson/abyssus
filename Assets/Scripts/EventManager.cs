@@ -9,7 +9,7 @@ namespace CaveGame
     {
         public static Action OnMapGenerated;
         public static Action<Item> OnItemCollided;
-        public static Action OnItemAddedToInventory;
+        public static Action OnInventoryChanged;
         public static Action<Vector3> OnTerrainEdit;
         public static Action OnTerrainModeToggle;
         public static Action<Enemy> OnEnemyClicked;

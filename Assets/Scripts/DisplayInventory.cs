@@ -93,11 +93,11 @@ namespace CaveGame
 
         private void OnEnable()
         {
-            EventManager.OnItemAddedToInventory += UpdateDisplay;
+            EventManager.OnInventoryChanged += UpdateDisplay;
         }
         private void OnDisable()
         {
-            EventManager.OnItemAddedToInventory -= UpdateDisplay;
+            EventManager.OnInventoryChanged -= UpdateDisplay;
         }
 
         private void OnApplicationQuit()

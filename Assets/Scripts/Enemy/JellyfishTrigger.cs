@@ -22,7 +22,7 @@ namespace CaveGame
             {
                 damageable.TakeDamage(_jellyfish.Enemy.Damage);
             }
-            _jellyfish.Die();
+            _jellyfish.Die(false);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
