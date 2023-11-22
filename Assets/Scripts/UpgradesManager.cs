@@ -55,8 +55,8 @@ namespace CaveGame
                 //GameStats.Instance.Stats.ItemsBought++;
                 EventManager.OnItemBuy?.Invoke(itemToBuy);
                 EventManager.OnInventoryChanged?.Invoke();
-                _isPlacingItem = true;
                 _craftingCanvas.SetActive(false);
+                _isPlacingItem = true;
 
             }
             else

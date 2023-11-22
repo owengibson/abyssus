@@ -3928,7 +3928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory: {fileID: 11400000, guid: fb712fc2b72bb0242a7d93c5f18c9862, type: 2}
-  _craftingCanvas: {fileID: 5243016209428298868}
+  _craftingCanvas: {fileID: 7931697067978051126}
 --- !u!1 &957385075
 GameObject:
   m_ObjectHideFlags: 0

@@ -155,6 +155,11 @@ namespace CaveGame
                 Die();
             }
 
+            if (_currentHealth != Enemy.MaxHealth)
+            {
+                _healthBar.gameObject.SetActive(true);
+            }
+
             _healthBar.value = _currentHealth / Enemy.MaxHealth;
 
             return _currentHealth;

@@ -32,7 +32,6 @@ namespace CaveGame
 
                     // Is the spawn root ground? If not, find a new root.
                     if (_mapGenerator.Map[x, y] == 0) continue;
-                    Debug.Log("Shipwreck root is ground");
 
                     // // Are the 4 blocks to the right of the root ground? If not, find a new root.
                     for (int g = 1; g < 5; g++)
@@ -44,7 +43,6 @@ namespace CaveGame
                         }
                     }
                     if (isIllegal) continue;
-                    Debug.Log("Shipwreck root has 5 wide ground platform");
 
                     // Is there a clear 5*5 area above and to the right of the root? If not, find a new root
                     for (int up = 1; up < 6; up++)
@@ -55,13 +53,11 @@ namespace CaveGame
                             if (_mapGenerator.Map[x + across, y + up] == 1)
                             {
                                 isIllegal = true;
-                                //Debug.Log("Tile [" + _mapGenerator.Map[x + across, y + up] + "] is [" + isIllegal + "]");
                                 break;
                             }
                         }
                     }
                     if (isIllegal) continue;
-                    Debug.Log("Shipwreck has a 5*5 clear area above root");
 
                     // Suitable spawn position found!!!
                     Vector2 spawnPos = new Vector2(x, y);
