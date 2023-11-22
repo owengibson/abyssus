@@ -32,7 +32,7 @@ namespace CaveGame
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Return) && _isInArea)
+            if(Input.GetKeyDown(KeyCode.Space) && _isInArea)
             {
                 GameStats.Instance.Stats.CavesVisited++;
 
