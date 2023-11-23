@@ -17,6 +17,7 @@ namespace CaveGame
         [SerializeField] private float _timeBetweenEnemies;
         [SerializeField] private Transform _enemyTarget;
         [SerializeField] private AudioSource _waveSoundtrack;
+        [SerializeField] private AudioSource _safeSoundtrack;
         [SerializeField] private float _soundtrackFade;
         [Space]
 
@@ -30,6 +31,7 @@ namespace CaveGame
             }
             else
             {
+                _safeSoundtrack.Play();
                 _leaveButton.SetActive(true);
             }
             //StartCoroutine(SpawnWaves());

@@ -7,6 +7,7 @@ namespace CaveGame
     public class JellyfishTrigger : MonoBehaviour
     {
         [SerializeField] private Jellyfish _jellyfish;
+        [SerializeField] private AudioSource _electricBlast;
 
         private Animator _animator;
         private List<IDamageable> _damageablesInsideRange = new();
@@ -14,6 +15,7 @@ namespace CaveGame
         private void Start()
         {
             _animator = GetComponent<Animator>();
+            
         }
 
         public void Explode()
@@ -29,8 +31,9 @@ namespace CaveGame
         {
             if (collision.CompareTag("Player"))
             {
+               
                 _animator.SetTrigger("JellyfishTriggered");
-
+                _electricBlast.Play();
                 _damageablesInsideRange.Add(collision.GetComponent<IDamageable>());
             }
 
