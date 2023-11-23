@@ -7,6 +7,7 @@ namespace CaveGame
     public class PlayerCombat : MonoBehaviour, IDamageable
     {
         [SerializeField] private PlayerStatsSO _stats;
+        [SerializeField] private AudioSource _playerHitSound;
 
         private WaterPlayerController _playerController;
 
@@ -37,6 +38,7 @@ namespace CaveGame
             {
                 Die();
             }
+            _playerHitSound.Play(); 
             EventManager.OnPlayerTakeDamage?.Invoke(_currentHealth, _stats.MaxHealth);
             return _currentHealth;
         }

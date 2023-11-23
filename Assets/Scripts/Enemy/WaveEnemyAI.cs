@@ -15,6 +15,7 @@ namespace CaveGame
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Slider _healthBar;
         [SerializeField] private float _nextWaypointDistance = 3f;
+        [SerializeField] private AudioSource _hitSfx;
 
         private Path _path;
         private Seeker _seeker;
@@ -95,7 +96,7 @@ namespace CaveGame
             {
                 Die();
             }
-
+            _hitSfx.Play();
             _healthBar.value = _currentHealth / Enemy.MaxHealth;
 
             return _currentHealth;

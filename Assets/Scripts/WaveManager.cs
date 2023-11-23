@@ -16,6 +16,8 @@ namespace CaveGame
         [SerializeField] private float _timeBetweenWaves;
         [SerializeField] private float _timeBetweenEnemies;
         [SerializeField] private Transform _enemyTarget;
+        [SerializeField] private AudioSource _waveSoundtrack;
+        [SerializeField] private float _soundtrackFade;
         [Space]
 
         [SerializeField] private GameObject _leaveButton;
@@ -34,7 +36,8 @@ namespace CaveGame
         }
 
         private IEnumerator SpawnWaves()
-        {
+        { 
+            _waveSoundtrack.Play(); 
             foreach (var wave in _waves)
             {
                 foreach (var enemyType in wave.Keys)
@@ -53,7 +56,27 @@ namespace CaveGame
                 yield return new WaitForSeconds(_timeBetweenWaves);
             }
             yield return new WaitForSeconds(5);
+            FadeOutVolume();    
             _leaveButton.SetActive(true);
+        }
+        public void FadeOutVolume()
+        {
+            StartCoroutine(FadeAudio(_waveSoundtrack, _soundtrackFade));
+        }
+
+      
+        IEnumerator FadeAudio(AudioSource audio, float duration)
+        {
+            float startVolume = audio.volume;
+            float timer = 0.0f;
+
+            while (timer < duration)
+            {
+                timer += Time.deltaTime;
+                audio.volume = Mathf.Lerp(startVolume, 0f, timer / duration);
+                yield return null;
+            }
+            audio.Stop(); 
         }
     }
 }

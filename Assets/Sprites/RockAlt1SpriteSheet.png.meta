@@ -150,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c8801dfd48f5294289a133252451e57
-      internalID: 765880674
+      spriteID: 4f9e87392d688794b8a87d779c5d57a7
+      internalID: -461616008
       vertices: []
       indices: 
       edges: []
@@ -171,8 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 348f36fb071874244ab20a38cbc564d8
-      internalID: 727040127
+      spriteID: 7155574f055c07049876688cd06efd93
+      internalID: 492887347
       vertices: []
       indices: 
       edges: []
@@ -192,14 +192,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46438d8f5780e5643ab354b1ac80c977
-      internalID: -641181252
+      spriteID: 00106c863be09e24db2b9576404c71bf
+      internalID: 2067051302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: RockAlt1SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 184
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c7e11faf154194d8f89a2c63ce716a
+      internalID: -1953277843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockAlt1SpriteSheet_4
       rect:
         serializedVersion: 2
         x: 16
@@ -213,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 228d17939c9087b49985f26c5aa6f210
-      internalID: -505551661
+      spriteID: f73cd5f1a40ea7c4985476865cfa1797
+      internalID: 1764655289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockAlt1SpriteSheet_4
+      name: RockAlt1SpriteSheet_5
       rect:
         serializedVersion: 2
         x: 48
@@ -234,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ebe718f0aa602547b789c17b918395d
-      internalID: -1850459565
+      spriteID: a8ab0d727c1ab7344ac2ac36a369ad8c
+      internalID: 133123419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockAlt1SpriteSheet_5
+      name: RockAlt1SpriteSheet_6
       rect:
         serializedVersion: 2
         x: 96
@@ -255,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3503b7abb15265b41b4ac4b17b9e5801
-      internalID: 279998110
+      spriteID: 7e903220b80e3e84f9f910b6f3361e6d
+      internalID: -338583780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockAlt1SpriteSheet_6
+      name: RockAlt1SpriteSheet_7
       rect:
         serializedVersion: 2
         x: 128
@@ -276,14 +297,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 608e6f859a398044c938204095f78738
-      internalID: -741697886
+      spriteID: 70fc77d3e5a3b6143abb6e48e9b1e1e7
+      internalID: 2094629860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockAlt1SpriteSheet_7
+      name: RockAlt1SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 152
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197c6798d39d74f4caad1e513f0cf661
+      internalID: 392658863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockAlt1SpriteSheet_9
       rect:
         serializedVersion: 2
         x: 16
@@ -297,14 +339,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd3ea1345dd6d614f8d44dadced0ad67
-      internalID: 666082382
+      spriteID: b95a419b2ef9c524b9e041d6b9bc7d46
+      internalID: -1105686271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockAlt1SpriteSheet_8
+      name: RockAlt1SpriteSheet_10
       rect:
         serializedVersion: 2
         x: 48
@@ -318,14 +360,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c232709fa557c0468661066ea4a36a5
-      internalID: 13645035
+      spriteID: a6857ae2ee07e5d49ab58eaae1a33685
+      internalID: 321123503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockAlt1SpriteSheet_9
+      name: RockAlt1SpriteSheet_11
       rect:
         serializedVersion: 2
         x: 0
@@ -339,14 +381,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8d0f4f21b8c9224b900b1f9a84aa8ed
-      internalID: 172316182
+      spriteID: fa633d4e29bcde44d8e701ea3f3756a6
+      internalID: -1203236733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockAlt1SpriteSheet_10
+      name: RockAlt1SpriteSheet_12
       rect:
         serializedVersion: 2
         x: 64
@@ -360,14 +402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80a0b78275dedec4ea915d4caf5fb573
-      internalID: 687676419
+      spriteID: d272b885baa211842ba7d0c89f95f6e2
+      internalID: -908439727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RockAlt1SpriteSheet_11
+      name: RockAlt1SpriteSheet_13
       rect:
         serializedVersion: 2
         x: 112
@@ -381,8 +423,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5027e095922aafe458f029eacf886180
-      internalID: 372079765
+      spriteID: a6cb0215d8c380d40a4b85a6dcfd0d50
+      internalID: -822564502
       vertices: []
       indices: 
       edges: []
@@ -398,18 +440,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RockAlt1SpriteSheet_0: 765880674
-      RockAlt1SpriteSheet_1: 727040127
-      RockAlt1SpriteSheet_10: 687676419
-      RockAlt1SpriteSheet_11: 372079765
-      RockAlt1SpriteSheet_2: -641181252
-      RockAlt1SpriteSheet_3: -505551661
-      RockAlt1SpriteSheet_4: -1850459565
-      RockAlt1SpriteSheet_5: 279998110
-      RockAlt1SpriteSheet_6: -741697886
-      RockAlt1SpriteSheet_7: 666082382
-      RockAlt1SpriteSheet_8: 13645035
-      RockAlt1SpriteSheet_9: 172316182
+      RockAlt1SpriteSheet_0: -461616008
+      RockAlt1SpriteSheet_1: 492887347
+      RockAlt1SpriteSheet_10: 321123503
+      RockAlt1SpriteSheet_11: -1203236733
+      RockAlt1SpriteSheet_12: -908439727
+      RockAlt1SpriteSheet_13: -822564502
+      RockAlt1SpriteSheet_2: 2067051302
+      RockAlt1SpriteSheet_3: -1953277843
+      RockAlt1SpriteSheet_4: 1764655289
+      RockAlt1SpriteSheet_5: 133123419
+      RockAlt1SpriteSheet_6: -338583780
+      RockAlt1SpriteSheet_7: 2094629860
+      RockAlt1SpriteSheet_8: 392658863
+      RockAlt1SpriteSheet_9: -1105686271
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

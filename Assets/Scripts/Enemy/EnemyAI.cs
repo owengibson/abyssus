@@ -12,6 +12,8 @@ namespace CaveGame
     {
         public EnemyState CurrentState = EnemyState.Patrol;
         public Transform Target;
+        [SerializeField] private AudioSource _hitSfx;
+       
 
         public EnemySO Enemy;
         [Space(20)] 
@@ -157,6 +159,7 @@ namespace CaveGame
 
             if (_currentHealth != Enemy.MaxHealth)
             {
+                _hitSfx.Play();
                 _healthBar.gameObject.SetActive(true);
             }
 
@@ -167,11 +170,14 @@ namespace CaveGame
 
         private void Die()
         {
+            
             foreach (var drop in Enemy.Drops)
             {
+                
                 Instantiate(drop.Prefab, new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f)), Quaternion.identity);
             }
             Destroy(gameObject);
+           
         }
 
         public void OnPointerClick(PointerEventData eventData)

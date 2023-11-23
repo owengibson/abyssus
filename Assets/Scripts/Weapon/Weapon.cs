@@ -11,6 +11,7 @@ namespace CaveGame
         [SerializeField] private WeaponStatsSO _stats;
         [SerializeField] private GameObject _projectilePrefab;
         [SerializeField] private float _projectileSpeed;
+        [SerializeField] private AudioSource _shootsfx;
 
         private bool _isAttackOnCooldown = false;
 
@@ -18,6 +19,7 @@ namespace CaveGame
         {
             if (_isAttackOnCooldown) return;
 
+            _shootsfx.Play();
             Vector2 targetScreenPos = Camera.main.WorldToScreenPoint(targetPosition);
             Vector2 startingScreenPos = Camera.main.WorldToScreenPoint(transform.position);
             targetScreenPos.x -= startingScreenPos.x;
