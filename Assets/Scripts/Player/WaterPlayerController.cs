@@ -129,13 +129,20 @@ namespace CaveGame
             _rigidbody2D.velocity = direction * 3;
         }
 
+        private void EmptyInventory()
+        {
+            _inventory.Container.Clear();
+        }
+
         private void OnEnable()
         {
             EventManager.OnItemCollided += PickupItem;
+            EventManager.OnPlayerDeath += EmptyInventory;
         }
         private void OnDisable()
         {
             EventManager.OnItemCollided -= PickupItem;
+            EventManager.OnPlayerDeath -= EmptyInventory;
         }
     }
 }

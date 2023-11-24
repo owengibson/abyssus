@@ -21,6 +21,8 @@ namespace CaveGame
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Rigidbody2D _rigidbody2D;
         [SerializeField] private Slider _healthBar;
+        [SerializeField] private Sprite _patrolSprite;
+        [SerializeField] private Sprite _chaseSprite;
         [Space]
 
         //[SerializeField] private Transform _target;
@@ -126,6 +128,8 @@ namespace CaveGame
                 // STOP CHASING (start "patrolling")
                 StopCoroutine(UpdatePath());
                 CurrentState = EnemyState.Patrol;
+                _spriteRenderer.sprite = _patrolSprite;
+
             }
         }
 
@@ -134,6 +138,7 @@ namespace CaveGame
             CurrentState = EnemyState.Chase;
             //StartCoroutine(ChaseExitBuffer());
             StartCoroutine(UpdatePath());
+            _spriteRenderer.sprite = _chaseSprite;
         }
 
         private IEnumerator Attack(IDamageable target)

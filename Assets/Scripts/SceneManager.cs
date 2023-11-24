@@ -35,15 +35,7 @@ namespace CaveGame
             if(Input.GetKeyDown(KeyCode.Space) && _isInArea)
             {
                 GameStats.Instance.Stats.CavesVisited++;
-
-                if (GameStats.Instance.Stats.ItemsBought == 0)
-                {
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("SubmarineScene");
-                }
-                else
-                {
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("EndScene");
-                }
+                LoadScene("SubmarineScene");
             }
         }
 

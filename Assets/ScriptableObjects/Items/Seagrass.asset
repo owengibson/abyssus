@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45155a7efe32d049992d75b93cc17c1, type: 3}
+  m_Name: Seagrass
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Type: 0
+  UIPrefab: {fileID: 2630284329719212038, guid: 615da8029d8d354448639c4c5bb03102, type: 3}
+  Prefab: {fileID: 6900473061615126211, guid: 5e25fd11dc69a5945880fd553b69e0c7, type: 3}
+  Name: Seagrass
+  Description: Common grass found in the sea.
+  MaxHealth: 0
+  Rarity: 10
+  ProximityLimit: 8

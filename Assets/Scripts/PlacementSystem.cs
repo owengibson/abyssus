@@ -40,10 +40,8 @@ namespace CaveGame
                 AutonomousTurret currentPlaceableTurret = _currentPlaceable.GetComponent<AutonomousTurret>();
                 currentPlaceableTurret.enabled = false;
 
-                if (Input.GetKeyDown(KeyCode.R))
-                {
-                    _currentPlaceable.transform.eulerAngles -= new Vector3(0, 0, 90);
-                }
+                RotatePlaceable();
+
 
                 // PLACE OBJECT
                 if(Input.GetMouseButtonDown(0))
@@ -55,6 +53,17 @@ namespace CaveGame
                     _placedItems.PlacedItems.Add(new PlacedItem(currentPlaceableTurret.Item, _currentPlaceable.transform.position, _currentPlaceable.transform.eulerAngles));
                 }
             }
+        }
+
+        private void RotatePlaceable()
+        {
+            Vector2 placeable = Camera.main.WorldToScreenPoint(_currentPlaceable.transform.position);
+            Vector2 origin = Camera.main.WorldToScreenPoint(new Vector2(0, 4));
+            placeable.x -= origin.x;
+            placeable.y -= origin.y;
+            float angle = Mathf.Atan2(placeable.y, placeable.x) * Mathf.Rad2Deg;
+            int zAngle = Mathf.CeilToInt(new Vector3(0, 0, angle - 180).z);
+            _currentPlaceable.transform.rotation = Quaternion.Euler(new Vector3(0, 0, zAngle));
         }
 
         private void OnEnable()
