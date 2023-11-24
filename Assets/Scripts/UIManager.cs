@@ -13,10 +13,10 @@ namespace CaveGame
         [SerializeField] private Slider _playerHealthBar;
         [SerializeField] private GameObject _deathScreen;
 
-        private void ToggleTerrainModeBorder()
+        /*private void ToggleTerrainModeBorder()
         {
             _terrainModeBorder.SetActive(!_terrainModeBorder.activeSelf);
-        }
+        }*/
 
         private void ToggleReturnToBoatPopup(bool state)
         {
@@ -37,14 +37,12 @@ namespace CaveGame
 
         private void OnEnable()
         {
-            EventManager.OnTerrainModeToggle += ToggleTerrainModeBorder;
             EventManager.OnEnterOrExitStartingArea += ToggleReturnToBoatPopup;
             EventManager.OnPlayerTakeDamage += UpdatePlayerHealthBar;
             EventManager.OnPlayerDeath += ShowDeathScreen;
         }
         private void OnDisable()
         {
-            EventManager.OnTerrainModeToggle -= ToggleTerrainModeBorder;
             EventManager.OnEnterOrExitStartingArea -= ToggleReturnToBoatPopup;
             EventManager.OnPlayerTakeDamage -= UpdatePlayerHealthBar;
             EventManager.OnPlayerDeath -= ShowDeathScreen;

@@ -12,9 +12,14 @@ namespace CaveGame
         [SerializeField] private float _despawnBufferTime = 0.15f;
 
         private bool _canDespawn = false;
+        private SpriteRenderer _spriteRenderer;
+        private ParticleSystem _particleSystem;
 
         private void Awake()
         {
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _particleSystem = GetComponent<ParticleSystem>();
+
             Invoke("ActivateDespawnability", _despawnBufferTime);
         }
 
@@ -30,12 +35,16 @@ namespace CaveGame
                 collision.gameObject.TryGetComponent<IDamageable>(out var enemy);
 
                 ParentWeapon.DamageTarget(enemy);
-                Destroy(gameObject);
+                _spriteRenderer.enabled = false;
+                _particleSystem.Stop();
+                Destroy(gameObject, _particleSystem.main.duration);
             }
             else if (collision.gameObject.CompareTag("Ground"))
             {
                 if (!_canDespawn) return;
-                Destroy(gameObject);
+                _spriteRenderer.enabled = false;
+                _particleSystem.Stop();
+                Destroy(gameObject, _particleSystem.main.duration);
             }
         }
     }
