@@ -119193,7 +119193,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3535743297212999469}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 928440477}
+        m_TargetAssemblyTypeName: CaveGame.UpgradesManager, Assembly-CSharp
+        m_MethodName: BuyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 541bd8a832635024185e4d9b189c621c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CaveGame.ShopItemSO, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1287464452061095985
 RectTransform:
   m_ObjectHideFlags: 0
