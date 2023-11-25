@@ -25,6 +25,7 @@ namespace CaveGame
 
         private void SelectItem(ShopItemSO item)
         {
+            if (!item.IsPlaceable) return;
             _currentPlaceable = Instantiate(item.Prefab);
             _isPlaced = false;
             _currentPlaceable.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.6f);

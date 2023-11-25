@@ -72,3 +72,4 @@ MonoBehaviour:
   Prefab: {fileID: 7796470866032583156, guid: 63d352cffbbba8f469a23bf68d780c5d, type: 3}
   Name: Turret
   Description: 
+  IsPlaceable: 1

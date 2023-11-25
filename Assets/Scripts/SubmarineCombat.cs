@@ -17,7 +17,8 @@ namespace CaveGame
 
         private void Awake()
         {
-            _currentHealth = _stats.MaxHealth;
+            _currentHealth = _stats.CurrentHealth;
+            _healthBar.value = _currentHealth / _stats.MaxHealth;
         }
 
 /*        private void Attack(WaveEnemyAI target)
@@ -37,7 +38,13 @@ namespace CaveGame
             {
                 Die();
             }
+            else if (_currentHealth > _stats.MaxHealth)
+            {
+                _currentHealth = _stats.MaxHealth;
+            }
+
             _healthBar.value = _currentHealth / _stats.MaxHealth;
+            _stats.CurrentHealth = _currentHealth;
 
             return _currentHealth;
         }

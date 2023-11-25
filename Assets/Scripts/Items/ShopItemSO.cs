@@ -8,6 +8,7 @@ namespace CaveGame
     public class ShopItemSO : ItemSO
     {
         public Dictionary<ItemSO, int> Cost;
+        public bool IsPlaceable;
 
         private void Awake()
         {

@@ -4232,6 +4232,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventory: {fileID: 11400000, guid: fb712fc2b72bb0242a7d93c5f18c9862, type: 2}
   _craftingCanvas: {fileID: 7931697067978051126}
+  _repairedNotification: {fileID: 5639924738117221137, guid: c9c984420ffcc4849a9f63a43e21203c, type: 3}
+  _submarine: {fileID: 1306080020}
 --- !u!1 &957385075
 GameObject:
   m_ObjectHideFlags: 0
@@ -124299,7 +124301,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3245245765407748556}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 928440477}
+        m_TargetAssemblyTypeName: CaveGame.UpgradesManager, Assembly-CSharp
+        m_MethodName: BuyUpgrade
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 792e8d9530f2ad14dad79e9055d95d63, type: 2}
+          m_ObjectArgumentAssemblyTypeName: CaveGame.ShopItemSO, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &8354587119087342270
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -72,3 +72,4 @@ MonoBehaviour:
   Prefab: {fileID: 7796470866032583156, guid: 2fff0e011deacf145ba600e7c0da1c29, type: 3}
   Name: Cannon
   Description: 
+  IsPlaceable: 1
