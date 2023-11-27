@@ -9,7 +9,7 @@ namespace CaveGame
     [CreateAssetMenu(fileName = "New Wave Scaling Stats", menuName = "Wave Scaling Stats")]
     public class WaveScalingStatsSO : SerializedScriptableObject
     {
-        public Dictionary<EnemySO, int>[] Waves;
+        public List<Dictionary<EnemySO, int>> Waves;
         public int WaveRoundCount;
         public float TimeBetweenWaves;
         public float TimeBetweenEnemies;
@@ -29,16 +29,16 @@ namespace CaveGame
                 int numOfEnemies = Waves.Last().Last().Value;
                 var newWave = new Dictionary<EnemySO, int>
                         {
-                            { Piranha, Mathf.CeilToInt(numOfEnemies * 1.5f) }
+                            { Piranha, Mathf.CeilToInt(numOfEnemies * 1.25f) }
                         };
-                Waves.Append(newWave);
+                Waves.Add(newWave);
                 Debug.Log($"Added {numOfNewWaves} new waves");
             }
         }
 
         private void Awake()
         {
-            Waves = new Dictionary<EnemySO, int>[]
+            Waves = new List<Dictionary<EnemySO, int>>
             {
                 new Dictionary<EnemySO, int> { { Piranha, 5 } },
                 new Dictionary<EnemySO, int> { { Piranha, 6 } },
