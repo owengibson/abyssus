@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace CaveGame
@@ -15,12 +16,15 @@ namespace CaveGame
 
         private void Awake()
         {
-            if (CurrentHealth <= 0)
+            /*if (CurrentHealth <= 0)
             {
                 CurrentHealth = MaxHealth;
-            }
+            }*/
+            CurrentHealth = MaxHealth;
         }
 
         private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
+
+        
     }
 }

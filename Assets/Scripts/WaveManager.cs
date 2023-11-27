@@ -1,13 +1,15 @@
 using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Editor;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CaveGame
 {
     public class WaveManager : SerializedMonoBehaviour
     {
-        [SerializeField] private Dictionary<EnemySO, int>[] _waves;
+        [SerializeField] private WaveScalingStatsSO _waveScalingStats;
         [Space(30)]
 
         [SerializeField] private Transform[] _spawnPoints;
@@ -25,8 +27,14 @@ namespace CaveGame
 
         private void Start()
         {
-            if (GameStats.Instance.Stats.CavesVisited % 2 == 0)
+            if (GameStats.Instance.Stats.CavesVisited % 2 == 0 && GameStats.Instance.Stats.CavesVisited != 0)
             {
+                // Scaling
+                if (_waveScalingStats.WaveRoundCount != 0 && _waveScalingStats.WaveRoundCount % 2 == 0)
+                {
+                    _waveScalingStats.ScaleWaves();
+                }
+
                 StartCoroutine(SpawnWaves());
             }
             else
@@ -34,13 +42,13 @@ namespace CaveGame
                 _safeSoundtrack.Play();
                 _leaveButton.SetActive(true);
             }
-            //StartCoroutine(SpawnWaves());
         }
 
         private IEnumerator SpawnWaves()
         { 
+            _waveScalingStats.WaveRoundCount++;
             _waveSoundtrack.Play(); 
-            foreach (var wave in _waves)
+            foreach (var wave in _waveScalingStats.Waves)
             {
                 foreach (var enemyType in wave.Keys)
                 {

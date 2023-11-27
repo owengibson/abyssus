@@ -12,6 +12,7 @@ namespace CaveGame
         [SerializeField] private float _despawnBufferTime = 0.15f;
 
         private bool _canDespawn = false;
+        private bool _canDamage = true;
         private SpriteRenderer _spriteRenderer;
         private ParticleSystem _particleSystem;
 
@@ -30,11 +31,12 @@ namespace CaveGame
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Enemy"))
+            if (collision.gameObject.CompareTag("Enemy") && _canDamage)
             {
                 collision.gameObject.TryGetComponent<IDamageable>(out var enemy);
 
                 ParentWeapon.DamageTarget(enemy);
+                _canDamage = false;
                 _spriteRenderer.enabled = false;
                 _particleSystem.Stop();
                 Destroy(gameObject, _particleSystem.main.duration);
@@ -42,6 +44,7 @@ namespace CaveGame
             else if (collision.gameObject.CompareTag("Ground"))
             {
                 if (!_canDespawn) return;
+                _canDamage = false;
                 _spriteRenderer.enabled = false;
                 _particleSystem.Stop();
                 Destroy(gameObject, _particleSystem.main.duration);

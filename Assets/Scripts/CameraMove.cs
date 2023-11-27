@@ -12,9 +12,10 @@ namespace CaveGame
 
         private void Start()
         {
-            if (GameStats.Instance.Stats.CavesVisited % 2 == 0)
+            if (GameStats.Instance.Stats.CavesVisited % 2 == 0 && GameStats.Instance.Stats.CavesVisited != 0)
             {
                 GetComponent<Camera>().DOOrthoSize(_waveCameraSize, 2f);
+                transform.DOMoveY(3.2f, 2f);
             }
         }
     }
