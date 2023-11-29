@@ -15,28 +15,40 @@ namespace CaveGame
         public float TimeBetweenEnemies;
         [Space]
 
+        [FoldoutGroup("Scaling Parameters")]
+        [MinValue(1f)]
+        [SerializeField] private float spawnTimeReduction = 1.25f;
+        [FoldoutGroup("Scaling Parameters")]
+        [MinValue(1f)]
+        [SerializeField] private float newWaveCountMultiplier = 1.25f;
+        [FoldoutGroup("Scaling Parameters")]
+        [MinValue(1f)]
+        [SerializeField] private float enemyAmountMultiplier = 1.25f;
+        [Space]
+
         public EnemySO Piranha;
 
         public void ScaleWaves()
         {
-            TimeBetweenEnemies /= 1.25f;
-            TimeBetweenWaves /= 1.25f;
+            int previousNumOfEnemies = Waves.Last().Last().Value;
 
-            int numOfNewWaves = Mathf.Clamp(Mathf.FloorToInt(WaveRoundCount / 1.25f), 1, 10000);
+            TimeBetweenEnemies /= spawnTimeReduction;
+            TimeBetweenWaves /= spawnTimeReduction;
+
+            int numOfNewWaves = Mathf.Clamp(Mathf.FloorToInt(WaveRoundCount / newWaveCountMultiplier), 1, 10000);
 
             for (int i = 0; i < numOfNewWaves; i++)
             {
-                int numOfEnemies = Waves.Last().Last().Value;
                 var newWave = new Dictionary<EnemySO, int>
                         {
-                            { Piranha, Mathf.CeilToInt(numOfEnemies * 1.25f) }
+                            { Piranha, Mathf.CeilToInt((previousNumOfEnemies + i) * enemyAmountMultiplier) }
                         };
                 Waves.Add(newWave);
                 Debug.Log($"Added {numOfNewWaves} new waves");
             }
         }
 
-        private void Awake()
+        public void Init()
         {
             Waves = new List<Dictionary<EnemySO, int>>
             {
@@ -48,6 +60,11 @@ namespace CaveGame
             TimeBetweenWaves = 8;
         }
 
-        private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
+        private void OnEnable()
+        {
+            hideFlags = HideFlags.DontUnloadUnusedAsset;
+            Init();
+        }
+        private void OnDisable() => Init();
     }
 }
