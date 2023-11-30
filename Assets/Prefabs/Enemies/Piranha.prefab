@@ -343,6 +343,7 @@ MonoBehaviour:
   CurrentState: 1
   Target: {fileID: 0}
   _hitSfx: {fileID: 4631249196338994259}
+  _deathSfx: {fileID: 0}
   Enemy: {fileID: 11400000, guid: ab78c352445fa5642889504900d5001e, type: 2}
   _spriteRenderer: {fileID: 1581929197718702810}
   _rigidbody2D: {fileID: 9135194884130098983}

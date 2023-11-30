@@ -13,7 +13,8 @@ namespace CaveGame
         public EnemyState CurrentState = EnemyState.Patrol;
         public Transform Target;
         [SerializeField] private AudioSource _hitSfx;
-       
+        [SerializeField] private AudioSource _deathSfx;
+
 
         public EnemySO Enemy;
         [Space(20)] 
@@ -178,7 +179,7 @@ namespace CaveGame
             
             foreach (var drop in Enemy.Drops)
             {
-                
+                _deathSfx.Play();
                 Instantiate(drop.Prefab, new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f)), Quaternion.identity);
             }
             Destroy(gameObject);
