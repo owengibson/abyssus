@@ -30,7 +30,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerDiverAnimation
-  m_Speed: 0.03
+  m_Speed: 0.06
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
