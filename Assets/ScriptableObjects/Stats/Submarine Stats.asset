@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Submarine Stats
   m_EditorClassIdentifier: 
   MaxHealth: 25
-  CurrentHealth: 25
+  CurrentHealth: 15
   Damage: 5
   AttackRange: 1000000
   AttackCooldown: 2

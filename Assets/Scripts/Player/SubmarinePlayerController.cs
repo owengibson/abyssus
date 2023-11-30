@@ -16,6 +16,7 @@ namespace CaveGame
         private SpriteRenderer _spriteRenderer;
 
         private bool _isInTurretArea = false;
+        private bool _hasMoved = false;
 
         private void Start()
         {
@@ -33,6 +34,12 @@ namespace CaveGame
             if (CurrentMode == PlayerMode.Combat) return;
             var horizontalInput = Input.GetAxisRaw("Horizontal");
             var verticalInput = Input.GetAxisRaw("Vertical");
+            if ((horizontalInput != 0 || verticalInput != 0) && !_hasMoved)
+            {
+                _hasMoved = true;
+                EventManager.OnTutorialPromptCompleted?.Invoke(0);
+            }
+
             //_rigidbody2D.velocity = new Vector2(horizontalInput, verticalInput) * _playerSpeed;
             //_rigidbody2D.AddForce(new Vector2(horizontalInput, verticalInput) * _playerSpeed);
             _rigidbody2D.position += new Vector2(horizontalInput, verticalInput) * _playerSpeed;
@@ -56,6 +63,8 @@ namespace CaveGame
                 {
                     CurrentMode = PlayerMode.Combat;
                     _spriteRenderer.enabled = false;
+
+                    EventManager.OnTutorialPromptCompleted?.Invoke(4);
                 }
                 else
                 {

@@ -39,7 +39,10 @@ namespace CaveGame
             else
             {
                 _safeSoundtrack.Play();
-                _leaveButton.SetActive(true);
+                if (GameStats.Instance.Stats.CavesVisited != 0)
+                {
+                    _leaveButton.SetActive(true);
+                }
             }
         }
 
@@ -65,12 +68,20 @@ namespace CaveGame
                 yield return new WaitForSeconds(_timeBetweenWaves);
             }
             yield return new WaitForSeconds(5);
+
+            if (GameStats.Instance.Stats.CavesVisited == 0) EventManager.OnTutorialPromptCompleted?.Invoke(5);
+
             FadeOutVolume();    
             _leaveButton.SetActive(true);
         }
         public void FadeOutVolume()
         {
             StartCoroutine(FadeAudio(_waveSoundtrack, _soundtrackFade));
+        }
+
+        private void StartWaveCombat()
+        {
+            StartCoroutine(SpawnWaves());
         }
 
       
@@ -86,6 +97,15 @@ namespace CaveGame
                 yield return null;
             }
             audio.Stop(); 
+        }
+
+        private void OnEnable()
+        {
+            EventManager.OnTutorialTurretEntered += StartWaveCombat;
+        }
+        private void OnDisable()
+        {
+            EventManager.OnTutorialTurretEntered -= StartWaveCombat;
         }
     }
 }

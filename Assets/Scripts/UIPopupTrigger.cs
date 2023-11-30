@@ -10,9 +10,13 @@ namespace CaveGame
         [SerializeField] private Transform _uiElement;
         [SerializeField] private Vector3 _hiddenPosition;
         [SerializeField] private Vector3 _shownPosition;
+        [Space]
+        [SerializeField] private bool _isInventory = false;
 
         private float _transitionSpeed = 0.4f;
         private bool _isTriggered = false;
+
+        private bool _hasShown = false;
 
         private enum UIElementDisplayState { Hidden, InProgress, Shown };
         private UIElementDisplayState _displayState = UIElementDisplayState.Hidden;
@@ -45,6 +49,12 @@ namespace CaveGame
             if (!collision.CompareTag("Player")) return;
             _isTriggered = true;
             ToggleUIElement(ref _displayState);
+
+            if (!_hasShown && _isInventory)
+            {
+                _hasShown = true;
+                EventManager.OnTutorialPromptCompleted?.Invoke(1);
+            }
         }
         private void OnTriggerExit2D(Collider2D collision)
         {

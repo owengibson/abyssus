@@ -19,6 +19,8 @@ namespace CaveGame
         public static Action OnPlayerDeath;
         public static Action<ShopItemSO> OnItemBuy;
         public static Action<GameObject> OnEnemyDie;
+        public static Action<int> OnTutorialPromptCompleted;
+        public static Action OnTutorialTurretEntered;
         
         public delegate float FloatReturnFloatParamDelegate(float value);
         public static FloatReturnFloatParamDelegate OnSubmarineTakeDamage;

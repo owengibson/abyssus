@@ -38,7 +38,7 @@ namespace CaveGame
             {
                 _popup.SetActive(!_popup.activeSelf);
             }
-            if (_player.CurrentMode == SubmarinePlayerController.PlayerMode.Combat)
+            if (_player?.CurrentMode == SubmarinePlayerController.PlayerMode.Combat)
             {
                 RotateToFaceMouse();
                 if (Input.GetMouseButtonDown(0))

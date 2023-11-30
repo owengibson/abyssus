@@ -52,6 +52,8 @@ namespace CaveGame
                     _currentPlaceable.GetComponentInChildren<SpriteRenderer>().color = Color.white;
                     Transform copiedTransform = _currentPlaceable.transform;
                     _placedItems.PlacedItems.Add(new PlacedItem(currentPlaceableTurret.Item, _currentPlaceable.transform.position, _currentPlaceable.transform.eulerAngles));
+
+                    EventManager.OnTutorialPromptCompleted?.Invoke(3);
                 }
             }
         }

@@ -14,7 +14,6 @@ namespace CaveGame
         //[SerializeField] private GameObject _insufficientItems;
         [SerializeField] private GameObject _craftingCanvas;
         [SerializeField] private GameObject _repairedNotification;
-        [SerializeField] private SubmarineCombat _submarine;
 
         private bool _isPlacingItem = false;
 
@@ -68,7 +67,8 @@ namespace CaveGame
                 {
                     RepairItemSO repairItem = (RepairItemSO)itemToBuy;
 
-                    _submarine.TakeDamage(-repairItem.RepairAmount);
+                    EventManager.OnSubmarineTakeDamage?.Invoke(-repairItem.RepairAmount);
+                    EventManager.OnTutorialPromptCompleted?.Invoke(2);
 
                     var popup = Instantiate(_repairedNotification, _craftingCanvas.transform);
                     popup.GetComponentInChildren<TextMeshProUGUI>().text = $"Repaired submarine by {repairItem.RepairAmount} health points";

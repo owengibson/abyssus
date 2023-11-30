@@ -8,8 +8,13 @@ namespace CaveGame
     public class InventorySO : ScriptableObject
     {
         public List<InventorySlot> Container = new();
+        public List<InventorySlot> StartingInventory = new();
 
-        private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
+        private void OnEnable()
+        {
+            hideFlags = HideFlags.DontUnloadUnusedAsset;
+            Container = new(StartingInventory);
+        }
 
         public void AddItem(ItemSO item, int amount)
         {

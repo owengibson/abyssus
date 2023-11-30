@@ -14,9 +14,23 @@ namespace CaveGame
         {
             if (GameStats.Instance.Stats.CavesVisited % 2 == 0 && GameStats.Instance.Stats.CavesVisited != 0)
             {
-                GetComponent<Camera>().DOOrthoSize(_waveCameraSize, 2f);
-                transform.DOMoveY(3.2f, 2f);
+                MoveCameraForWaveCombat();
             }
+        }
+
+        private void MoveCameraForWaveCombat()
+        {
+            GetComponent<Camera>().DOOrthoSize(_waveCameraSize, 2f);
+            transform.DOMoveY(3.2f, 2f);
+        }
+
+        private void OnEnable()
+        {
+            EventManager.OnTutorialTurretEntered += MoveCameraForWaveCombat;
+        }
+        private void OnDisable()
+        {
+            EventManager.OnTutorialTurretEntered -= MoveCameraForWaveCombat;
         }
     }
 }

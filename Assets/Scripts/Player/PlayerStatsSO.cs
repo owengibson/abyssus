@@ -14,16 +14,11 @@ namespace CaveGame
         public float AttackRange;
         public float AttackCooldown;
 
-        private void Awake()
+        private void OnEnable()
         {
-            /*if (CurrentHealth <= 0)
-            {
-                CurrentHealth = MaxHealth;
-            }*/
+            hideFlags = HideFlags.DontUnloadUnusedAsset;
             CurrentHealth = MaxHealth;
         }
-
-        private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
 
         
     }
