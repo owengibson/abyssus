@@ -20,6 +20,11 @@ namespace CaveGame
             CurrentHealth = MaxHealth;
         }
 
-        
+        public void Init()
+        {
+            CurrentHealth = MaxHealth;
+            Debug.Log("init called");
+        }
+
     }
 }

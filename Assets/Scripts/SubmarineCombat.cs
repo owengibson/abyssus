@@ -36,6 +36,7 @@ namespace CaveGame
             _currentHealth -= amount;
             if (_currentHealth <= 0)
             {
+                _stats.Init();
                 Die();
             }
             else if (_currentHealth > _stats.MaxHealth)

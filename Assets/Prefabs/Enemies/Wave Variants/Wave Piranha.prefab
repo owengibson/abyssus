@@ -128,7 +128,6 @@ MonoBehaviour:
   _healthBar: {fileID: 8036769524846738345}
   _nextWaypointDistance: 3
   _hitSfx: {fileID: 1241193333180555362}
-  _deathSfx: {fileID: 0}
 --- !u!114 &8153628752566502479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,6 +671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 101180242708618170}
   - component: {fileID: 3181539074520364387}
+  - component: {fileID: 6784382639734308275}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -746,3 +746,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6784382639734308275
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8672691427598990306}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7af1cb94aa3645f40ba5780b4aaa7e14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
