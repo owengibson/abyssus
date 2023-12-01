@@ -95,7 +95,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  WaveRoundCount: 0
+  WaveRoundCount: 1
   TimeBetweenWaves: 8
   TimeBetweenEnemies: 1
   spawnTimeReduction: 1.25
