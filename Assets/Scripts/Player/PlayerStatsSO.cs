@@ -23,7 +23,7 @@ namespace CaveGame
         public void Init()
         {
             CurrentHealth = MaxHealth;
-            Debug.Log("init called");
+            Debug.Log($"init called on {this.name}");
         }
 
     }

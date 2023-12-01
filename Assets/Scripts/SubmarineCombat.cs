@@ -36,7 +36,7 @@ namespace CaveGame
             _currentHealth -= amount;
             if (_currentHealth <= 0)
             {
-                _stats.Init();
+       
                 Die();
             }
             else if (_currentHealth > _stats.MaxHealth)
@@ -52,6 +52,8 @@ namespace CaveGame
 
         private void Die()
         {
+            _stats.Init();
+            _currentHealth = _stats.MaxHealth;
             UnityEngine.SceneManagement.SceneManager.LoadScene("EndScene");
         }
 

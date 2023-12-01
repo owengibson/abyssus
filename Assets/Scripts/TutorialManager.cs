@@ -9,18 +9,27 @@ namespace CaveGame
     {
         [SerializeField] private TextMeshProUGUI[] _textPrompts;
         [SerializeField] private GameObject _tutorialFinishedPanel;
+        [SerializeField] private PlayerStatsSO subStats;
 
         private List<int> _completedPrompts = new List<int>();
         private static bool _isTutorialCompleted = false;
 
         private void Start()
         {
+            if (subStats != null)
+            {
+                subStats.Init(); 
+                Debug.Log("Current Health was set to Max Health");
+            }
+
             if (_isTutorialCompleted)
             {
                 Destroy(gameObject);
             }
             else
             {
+                // TODO 1/12/2023 3:45 - Trying to work out why the health does not reset
+               
                 EventManager.OnSubmarineTakeDamage?.Invoke(10);
             }
         }
