@@ -1693,7 +1693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1170201755182997871, guid: acf21c45517df134d87beccc99e03476, type: 3}
       propertyPath: m_ScrollSensitivity
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1170201755390032946, guid: acf21c45517df134d87beccc99e03476, type: 3}
       propertyPath: m_FontData.m_Font

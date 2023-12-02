@@ -14,6 +14,7 @@ namespace CaveGame
         //[SerializeField] private GameObject _insufficientItems;
         [SerializeField] private GameObject _craftingCanvas;
         [SerializeField] private GameObject _repairedNotification;
+        [SerializeField] private AudioSource _repairSfx;
 
         private bool _isPlacingItem = false;
 
@@ -62,6 +63,7 @@ namespace CaveGame
                 {
                     _craftingCanvas.SetActive(false);
                     _isPlacingItem = true;
+                  
                 }
                 else if (itemToBuy.GetType() == typeof(RepairItemSO))
                 {
@@ -70,6 +72,7 @@ namespace CaveGame
                     EventManager.OnSubmarineTakeDamage?.Invoke(-repairItem.RepairAmount);
                     EventManager.OnTutorialPromptCompleted?.Invoke(2);
 
+                    _repairSfx.Play();
                     var popup = Instantiate(_repairedNotification, _craftingCanvas.transform);
                     popup.GetComponentInChildren<TextMeshProUGUI>().text = $"Repaired submarine by {repairItem.RepairAmount} health points";
                     popup.transform.DOMoveY(280, 0.5f).SetEase(Ease.OutBack).OnComplete(() => StartCoroutine(DismissRepairNotification(popup)));
