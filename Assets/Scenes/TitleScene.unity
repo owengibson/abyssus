@@ -1549,7 +1549,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1170201754472392666, guid: acf21c45517df134d87beccc99e03476, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 7.1421604
+      value: 157.14128
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170201754638628625, guid: acf21c45517df134d87beccc99e03476, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1170201754716817170, guid: acf21c45517df134d87beccc99e03476, type: 3}
       propertyPath: m_Name
@@ -1651,21 +1655,33 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1170201754752775416, guid: acf21c45517df134d87beccc99e03476, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170201754752775416, guid: acf21c45517df134d87beccc99e03476, type: 3}
+      propertyPath: m_Color.g
+      value: 0.22830874
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170201754752775416, guid: acf21c45517df134d87beccc99e03476, type: 3}
+      propertyPath: m_Color.r
+      value: 0.15801886
+      objectReference: {fileID: 0}
     - target: {fileID: 1170201754752775423, guid: acf21c45517df134d87beccc99e03476, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1170201754752775423, guid: acf21c45517df134d87beccc99e03476, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.95238554
       objectReference: {fileID: 0}
     - target: {fileID: 1170201754863850806, guid: acf21c45517df134d87beccc99e03476, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1170201754863850806, guid: acf21c45517df134d87beccc99e03476, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1170201754863850806, guid: acf21c45517df134d87beccc99e03476, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1674,6 +1690,10 @@ PrefabInstance:
     - target: {fileID: 1170201755182997869, guid: acf21c45517df134d87beccc99e03476, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170201755182997871, guid: acf21c45517df134d87beccc99e03476, type: 3}
+      propertyPath: m_ScrollSensitivity
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1170201755390032946, guid: acf21c45517df134d87beccc99e03476, type: 3}
       propertyPath: m_FontData.m_Font
