@@ -8,6 +8,7 @@ namespace CaveGame
     public class PlacementSystem : MonoBehaviour
     {
         [SerializeField] private PlacedItemsDatabaseSO _placedItems;
+        [SerializeField] private AudioSource _turretPlaceSfx;
 
         private bool _isPlaced = true;
         private GameObject _currentPlaceable;
@@ -47,6 +48,7 @@ namespace CaveGame
                 // PLACE OBJECT
                 if(Input.GetMouseButtonDown(0))
                 {
+                    _turretPlaceSfx.Play();
                     _isPlaced = true;
                     currentPlaceableTurret.enabled = true;
                     _currentPlaceable.GetComponentInChildren<SpriteRenderer>().color = Color.white;
