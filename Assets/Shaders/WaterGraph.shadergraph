@@ -188,8 +188,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 0.0,
-            "y": 0.0
+            "x": 266.0,
+            "y": 433.0
         },
         "m_Blocks": [
             {
@@ -205,8 +205,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 483.0000305175781,
-            "y": 650.0000610351563
+            "x": 469.0,
+            "y": 679.0000610351563
         },
         "m_Blocks": [
             {
@@ -656,7 +656,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Alpha",
     "m_StageCapability": 2,
-    "m_Value": 1.0,
+    "m_Value": 100.0,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }
@@ -757,9 +757,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 120.00003051757813,
-            "y": 673.0000610351563,
-            "width": 130.99998474121095,
+            "x": -27.0,
+            "y": 812.0,
+            "width": 131.0,
             "height": 34.0
         }
     },
@@ -1210,7 +1210,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "CellDensity",
     "m_StageCapability": 3,
-    "m_Value": 5.0,
+    "m_Value": 100.0,
     "m_DefaultValue": 5.0,
     "m_Labels": []
 }
