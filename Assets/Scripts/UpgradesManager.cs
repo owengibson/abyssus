@@ -90,12 +90,18 @@ namespace CaveGame
             notification.transform.DOMoveY(-196, 0.5f).SetEase(Ease.InBack).OnComplete(() => Destroy(notification));
         }
 
-        private void Update()
+        private void ActivateCraftingUI()
         {
-            if (_isPlacingItem && Input.GetMouseButtonDown(0))
-            {
-                _craftingCanvas.SetActive(true);
-            }
+            _craftingCanvas.SetActive(true);
+        }
+
+        private void OnEnable()
+        {
+            EventManager.OnPlaceablePlaced += ActivateCraftingUI;
+        }
+        private void OnDisable()
+        {
+            EventManager.OnPlaceablePlaced -= ActivateCraftingUI;
         }
     }
 }

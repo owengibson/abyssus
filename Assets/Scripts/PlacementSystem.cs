@@ -1,5 +1,7 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +11,7 @@ namespace CaveGame
     {
         [SerializeField] private PlacedItemsDatabaseSO _placedItems;
         [SerializeField] private AudioSource _turretPlaceSfx;
+        [SerializeField] private Vector2[] _suitablePlaces;
 
         private bool _isPlaced = true;
         private GameObject _currentPlaceable;
@@ -48,14 +51,24 @@ namespace CaveGame
                 // PLACE OBJECT
                 if(Input.GetMouseButtonDown(0))
                 {
-                    _turretPlaceSfx.Play();
-                    _isPlaced = true;
-                    currentPlaceableTurret.enabled = true;
-                    _currentPlaceable.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-                    Transform copiedTransform = _currentPlaceable.transform;
-                    _placedItems.PlacedItems.Add(new PlacedItem(currentPlaceableTurret.Item, _currentPlaceable.transform.position, _currentPlaceable.transform.eulerAngles));
+                    if (_suitablePlaces.Contains(pos))
+                    {
+                        _turretPlaceSfx.Play();
+                        _isPlaced = true;
+                        currentPlaceableTurret.enabled = true;
+                        _currentPlaceable.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+                        Transform copiedTransform = _currentPlaceable.transform;
+                        _placedItems.PlacedItems.Add(new PlacedItem(currentPlaceableTurret.Item, _currentPlaceable.transform.position, _currentPlaceable.transform.eulerAngles));
 
-                    EventManager.OnTutorialPromptCompleted?.Invoke(3);
+                        EventManager.OnTutorialPromptCompleted?.Invoke(3);
+                        EventManager.OnPlaceablePlaced?.Invoke();
+                    }
+                    else
+                    {
+                        Debug.Log("Invalid placeable location");
+                        var placeableRenderer = currentPlaceableTurret.GetComponentInChildren<SpriteRenderer>();
+                        placeableRenderer.DOColor(Color.red, 0.25f).OnComplete(() => placeableRenderer.DOColor(Color.white, 0.25f));
+                    }
                 }
             }
         }

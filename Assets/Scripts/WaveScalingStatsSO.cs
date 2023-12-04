@@ -52,8 +52,8 @@ namespace CaveGame
         {
             Waves = new List<Dictionary<EnemySO, int>>
             {
-                new Dictionary<EnemySO, int> { { Piranha, 5 } },
-                new Dictionary<EnemySO, int> { { Piranha, 6 } },
+                new Dictionary<EnemySO, int> { { Piranha, 3 } },
+                new Dictionary<EnemySO, int> { { Piranha, 4 } },
             };
             WaveRoundCount = 0;
             TimeBetweenEnemies = 1;
