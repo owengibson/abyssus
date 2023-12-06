@@ -68,6 +68,7 @@ namespace CaveGame
                         Debug.Log("Invalid placeable location");
                         var placeableRenderer = currentPlaceableTurret.GetComponentInChildren<SpriteRenderer>();
                         placeableRenderer.DOColor(Color.red, 0.25f).OnComplete(() => placeableRenderer.DOColor(Color.white, 0.25f));
+                        DOTween.Shake(() => _currentPlaceable.transform.position, x => _currentPlaceable.transform.position = x, 0.4f, new Vector3(0.5f, 0, 0), 20, 45);
                     }
                 }
             }
