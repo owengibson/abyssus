@@ -7,6 +7,7 @@ namespace CaveGame
     public class Drill : MonoBehaviour
     {
         [SerializeField] private WaterPlayerController _player;
+        [SerializeField] private AudioSource _rockBreaksfx;
 
         private void OnCollisionStay2D(Collision2D collision)
         {
@@ -15,6 +16,8 @@ namespace CaveGame
             foreach (var contactPoint in collision.contacts)
             {
                 EventManager.OnTerrainEdit?.Invoke(contactPoint.point);
+                Debug.Log("Drill");
+                _rockBreaksfx.Play();
             }
         }
 
@@ -25,6 +28,8 @@ namespace CaveGame
             foreach (var contactPoint in collision.contacts)
             {
                 EventManager.OnTerrainEdit?.Invoke(contactPoint.point);
+                Debug.Log("Drill2");
+                _rockBreaksfx.Play();
             }
 
             _player.DrillBounceback(collision.contacts[0].normal);

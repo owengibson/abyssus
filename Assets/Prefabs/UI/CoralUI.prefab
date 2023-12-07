@@ -96,6 +96,14 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4934889624955413447, guid: 99b3e7e892fa5a14bad454cc5b12351f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934889624955413447, guid: 99b3e7e892fa5a14bad454cc5b12351f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7515587391471413185, guid: 99b3e7e892fa5a14bad454cc5b12351f, type: 3}
       propertyPath: m_Name
       value: CoralUI

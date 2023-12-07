@@ -20,6 +20,8 @@ namespace CaveGame
         [SerializeField] private GameObject _drill;
         [SerializeField] private ParticleSystem _particleSystem;
         [SerializeField] private SpriteRenderer _playerSprite;
+        [SerializeField] private AudioSource _drillSfx;
+       
 
         private Rigidbody2D _rigidbody2D;
         private Weapon _weapon;
@@ -84,6 +86,7 @@ namespace CaveGame
                 EventManager.OnTerrainModeToggle?.Invoke();
                 if (CurrentMode == PlayerMode.Terrain)
                 {
+                    _drillSfx.Stop();
                     CurrentMode = PlayerMode.Normal;
                     Cursor.SetCursor(_defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
                     Debug.Log("Exited terrain edit mode");
@@ -91,6 +94,7 @@ namespace CaveGame
                 }
                 else
                 {
+                    _drillSfx.Play();
                     CurrentMode = PlayerMode.Terrain;
                     Cursor.SetCursor(_terrainModeCursor, Vector2.zero, CursorMode.ForceSoftware);
                     Debug.Log("Entered terrain edit mode");
@@ -125,6 +129,8 @@ namespace CaveGame
         public void DrillBounceback(Vector2 direction)
         {
             Debug.Log(direction);
+           
+
             // this doesn't work :(
             _rigidbody2D.velocity = direction * 3;
         }
