@@ -11,6 +11,8 @@ namespace CaveGame
         [SerializeField] private PlayerStatsSO _stats;
         [SerializeField] private Slider _healthBar;
         [SerializeField] private SubmarinePlayerController _playerController;
+        //[SerializeField] private AudioSource _takeDamageSfx;
+       
 
         private float _currentHealth;
         private bool _isAttackOnCooldown = false;
@@ -42,10 +44,12 @@ namespace CaveGame
             else if (_currentHealth > _stats.MaxHealth)
             {
                 _currentHealth = _stats.MaxHealth;
+                
             }
-
+            
             _healthBar.value = _currentHealth / _stats.MaxHealth;
             _stats.CurrentHealth = _currentHealth;
+           
 
             return _currentHealth;
         }
