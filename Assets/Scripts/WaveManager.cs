@@ -40,7 +40,7 @@ namespace CaveGame
             {
                 _safeSoundtrack.Play();
             }
-            if (GameStats.Instance.Stats.CavesVisited == 0)
+            if (GameStats.Instance.Stats.CavesVisited == 0 && !SubmarineTutorialManager.IsTutorialCompleted)
             {
                 _leaveButton.SetActive(false);
             }

@@ -7,27 +7,26 @@ namespace CaveGame
 {
     public class SceneManager : MonoBehaviour
     {
-        private bool _isAllowedToLeave = false;
         private bool _isInArea = false;
+        private bool _canLeave = false;
 
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (!collision.CompareTag("Player")) return;
-            _isAllowedToLeave = true;
             _isInArea = false;
+            _canLeave = true;
             EventManager.OnEnterOrExitStartingArea?.Invoke(false);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (!collision.CompareTag("Player") && !_isAllowedToLeave) return;
+            if (!collision.CompareTag("Player")) return;
+            if (!_canLeave) return;
+            bool isTutorialActive = (bool)EventManager.OnCheckCaveTutorialState?.Invoke();
+            if (isTutorialActive) return;
 
             _isInArea = true;
-
-            if (_isAllowedToLeave)
-            {
-                EventManager.OnEnterOrExitStartingArea?.Invoke(true);
-            }
+            EventManager.OnEnterOrExitStartingArea?.Invoke(true);
         }
 
         private void Update()

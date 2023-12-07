@@ -204,6 +204,11 @@ namespace CaveGame
                         i--;
                         continue;
                     }
+                    if (Vector2.Distance(new Vector2(x,y), PlayerSpawner.Instance.Player.transform.position) < 25)
+                    {
+                        i--;
+                        continue;
+                    }
 
                     // SUITABLE SPAWN LOCATION
                     var generatedEnemy = Instantiate(enemy.Prefab, new Vector2(x, y), Quaternion.identity);

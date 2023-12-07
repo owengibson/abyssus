@@ -26,6 +26,7 @@ namespace CaveGame
         public delegate float FloatReturnFloatParamDelegate(float value);
         public static FloatReturnFloatParamDelegate OnSubmarineTakeDamage;
 
+        public static Func<bool> OnCheckCaveTutorialState;
 
         /*public delegate Item ItemReturnDelegate();
         public static ItemReturnDelegate OnItemClicked;*/
