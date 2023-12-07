@@ -11,14 +11,24 @@ namespace CaveGame
         [SerializeField] private TextMeshProUGUI _tutorialText;
 
         private int _tutorialIndex = 1;
+        private GameObject _anchor;
+
         private static bool _isTutorialCompleted = false;
 
-        private void Awake()
+        private void Start()
         {
             if (_isTutorialCompleted)
             {
                 Destroy(_tutorialText.transform.parent.gameObject);
             }
+        }
+
+        private void GetAndDisableAnchor(ReturnAnchor anchor)
+        {
+            if (_isTutorialCompleted) return;
+
+            _anchor = anchor.gameObject;
+            _anchor.SetActive(false);
         }
 
         private void UpdateTutorialPanel(string text, bool isLastStep = false)
@@ -31,6 +41,7 @@ namespace CaveGame
                 _tutorialText.transform.parent.DOMoveY(-300, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
                 {
                     Destroy(_tutorialText.transform.parent.gameObject);
+                    _anchor.SetActive(true);
                 });
             }
             else
@@ -59,10 +70,12 @@ namespace CaveGame
         private void OnEnable()
         {
             EventManager.OnCheckCaveTutorialState += IsTutorialActive;
+            EventManager.OnAnchorSpawn += GetAndDisableAnchor;
         }
         private void OnDisable()
         {
             EventManager.OnCheckCaveTutorialState -= IsTutorialActive;
+            EventManager.OnAnchorSpawn -= GetAndDisableAnchor;
         }
     }
 }
