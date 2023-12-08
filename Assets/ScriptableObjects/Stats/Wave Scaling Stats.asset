@@ -51,7 +51,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 5
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -79,7 +79,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 6
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -95,10 +95,10 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  WaveRoundCount: 1
+  WaveRoundCount: 0
   TimeBetweenWaves: 8
   TimeBetweenEnemies: 1
   spawnTimeReduction: 1.25
   newWaveCountMultiplier: 1.1
-  enemyAmountMultiplier: 1.25
+  enemyAmountMultiplier: 1.5
   Piranha: {fileID: 11400000, guid: 7f89cbb9650242e4a9b1e1965fae1218, type: 2}

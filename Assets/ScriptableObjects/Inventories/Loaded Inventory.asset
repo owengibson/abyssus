@@ -12,12 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7026ea5cbeac82b47bb962fc2b1da372, type: 3}
   m_Name: Loaded Inventory
   m_EditorClassIdentifier: 
-  Container:
-  - Item: {fileID: 11400000, guid: bb53eaf4d1513214c9429351c4cb7060, type: 2}
-    Amount: 100000
-  - Item: {fileID: 11400000, guid: 3d98069d5800f114393de1774f4735c6, type: 2}
-    Amount: 100000
-  - Item: {fileID: 11400000, guid: f5e95a49b19fe23448281696f0e958af, type: 2}
-    Amount: 100000
-  - Item: {fileID: 11400000, guid: 0568cca891833b44f8d52ea4154c344a, type: 2}
-    Amount: 10000
+  Container: []
+  StartingInventory: []
