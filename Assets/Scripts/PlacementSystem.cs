@@ -17,8 +17,12 @@ namespace CaveGame
         private GameObject _currentPlaceable;
         private Grid _grid;
 
+        //private Tween _shakeTween(Transform t) => t.DOPunchPosition(Vector2.left * 0.5f, .4f, 20, 45).OnComplete(() => Debug.Log("Tween called"));
+
         private void Start()
         {
+            DOTween.Clear(true);
+
             _grid = GetComponent<Grid>();
 
             foreach(var item in _placedItems.PlacedItems)
@@ -66,10 +70,11 @@ namespace CaveGame
                     else
                     {
                         Debug.Log("Invalid placeable location");
+                        //_shakeTween(_currentPlaceable.transform).Play();
                         var placeableRenderer = currentPlaceableTurret.GetComponentInChildren<SpriteRenderer>();
                         placeableRenderer.DOColor(Color.red, 0.25f).OnComplete(() => placeableRenderer.DOColor(Color.white, 0.25f));
                         DOTween.Shake(() => _currentPlaceable.transform.position, x => _currentPlaceable.transform.position = x, 0.4f, new Vector3(0.5f, 0, 0), 20, 45);
-                    }
+                    } 
                 }
             }
         }
