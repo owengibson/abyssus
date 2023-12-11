@@ -23,12 +23,14 @@ namespace CaveGame
             }
         }
 
-        private void GetAndDisableAnchor(ReturnAnchor anchor)
+        private void GetAndDisableAnchorAndPlayer(ReturnAnchor anchor)
         {
             if (_isTutorialCompleted) return;
 
             _anchor = anchor.gameObject;
             _anchor.SetActive(false);
+
+            PlayerSpawner.Instance.Player.GetComponent<WaterPlayerController>().ToggleMovement(false);
         }
 
         private void UpdateTutorialPanel(string text, bool isLastStep = false)
@@ -38,6 +40,7 @@ namespace CaveGame
             if (isLastStep)
             {
                 _isTutorialCompleted = true;
+                PlayerSpawner.Instance.Player.GetComponent<WaterPlayerController>().ToggleMovement(true);
                 _tutorialText.transform.parent.DOMoveY(-300, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
                 {
                     Destroy(_tutorialText.transform.parent.gameObject);
@@ -70,12 +73,12 @@ namespace CaveGame
         private void OnEnable()
         {
             EventManager.OnCheckCaveTutorialState += IsTutorialActive;
-            EventManager.OnAnchorSpawn += GetAndDisableAnchor;
+            EventManager.OnAnchorSpawn += GetAndDisableAnchorAndPlayer;
         }
         private void OnDisable()
         {
             EventManager.OnCheckCaveTutorialState -= IsTutorialActive;
-            EventManager.OnAnchorSpawn -= GetAndDisableAnchor;
+            EventManager.OnAnchorSpawn -= GetAndDisableAnchorAndPlayer;
         }
     }
 }

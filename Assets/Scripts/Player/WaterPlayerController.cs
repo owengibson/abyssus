@@ -20,11 +20,16 @@ namespace CaveGame
         [SerializeField] private GameObject _drill;
         [SerializeField] private ParticleSystem _particleSystem;
         [SerializeField] private SpriteRenderer _playerSprite;
+        [SerializeField] private SpriteRenderer _gunSprite;
         [SerializeField] private AudioSource _drillSfx;
        
 
         private Rigidbody2D _rigidbody2D;
         private Weapon _weapon;
+        private bool _isMovementActive = true;
+
+        private Vector2 _gunDefaultPos = new Vector2(0.532f, 0.227f);
+        private Vector2 _gunFlippedPos = new Vector2(-0.525f, 0.227f);
 
         public PlayerMode CurrentMode = PlayerMode.Normal;
 
@@ -36,8 +41,15 @@ namespace CaveGame
             Cursor.SetCursor(_defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
         }
 
+        public void ToggleMovement(bool activate)
+        {
+            _isMovementActive = activate;
+        }
+
         private void MovePlayer()
         {
+            if (!_isMovementActive) return;
+
             var horizontalInput = Input.GetAxisRaw("Horizontal");
             var verticalInput = Input.GetAxisRaw("Vertical");
             //_rigidbody2D.velocity = new Vector2(horizontalInput, verticalInput) * _playerSpeed;
@@ -56,10 +68,14 @@ namespace CaveGame
             if (transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180)
             {
                 _playerSprite.flipX = true;
+                _gunSprite.flipY = true;
+                _gunSprite.transform.localPosition = _gunFlippedPos;
             }
             else
             {
                 _playerSprite.flipX = false;
+                _gunSprite.flipY = false;
+                _gunSprite.transform.localPosition = _gunDefaultPos;
             }
         }
 

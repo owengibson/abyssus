@@ -5052,6 +5052,7 @@ MonoBehaviour:
   _drill: {fileID: 1958279182142942255}
   _particleSystem: {fileID: 3234999921801261004}
   _playerSprite: {fileID: 8405381073454175416}
+  _gunSprite: {fileID: 2928136309853095896}
   _drillSfx: {fileID: 6479783509311737651}
   CurrentMode: 0
 --- !u!114 &7694091143135147421

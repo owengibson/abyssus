@@ -11,6 +11,8 @@ namespace CaveGame
 
         private Transform _player;
         private Rigidbody2D _rigidbody2D;
+        private SpriteRenderer _spriteRenderer;
+
         [SerializeField] private AudioSource _stalkerTrack;
         [SerializeField] private float _audioFadeIn;
         [SerializeField] private float _maxVolume;
@@ -19,9 +21,22 @@ namespace CaveGame
         {
             _player = PlayerSpawner.Instance.Player.transform;
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
             InvokeRepeating("UpdateTarget", 0.5f, 0.5f);
             FadeInVolume();
+        }
+
+        private void Update()
+        {
+            if (_rigidbody2D.velocity.x >= 0.01f)
+            {
+                _spriteRenderer.flipX = false;
+            }
+            else if (_rigidbody2D.velocity.x <= -0.01f)
+            {
+                _spriteRenderer.flipX = true;
+            }
         }
 
         private void UpdateTarget()
@@ -40,7 +55,6 @@ namespace CaveGame
         {
             StartCoroutine(FadeAudio(_stalkerTrack, _audioFadeIn, _maxVolume));
         }
-
 
         IEnumerator FadeAudio(AudioSource audio, float duration, float maxVol)
         {
