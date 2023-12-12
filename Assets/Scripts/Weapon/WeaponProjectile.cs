@@ -10,6 +10,7 @@ namespace CaveGame
         public Weapon ParentWeapon;
 
         [SerializeField] private float _despawnBufferTime = 0.15f;
+        [SerializeField] private AudioSource _hitWallSfx;
 
         private bool _canDespawn = false;
         private bool _canDamage = true;
@@ -43,6 +44,7 @@ namespace CaveGame
             }
             else if (collision.gameObject.CompareTag("Ground"))
             {
+                _hitWallSfx.Play();
                 if (!_canDespawn) return;
                 _canDamage = false;
                 _spriteRenderer.enabled = false;
