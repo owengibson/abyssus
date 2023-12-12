@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace CaveGame
         [Space]
 
         [SerializeField] private GameObject _leaveButton;
+        [SerializeField] private CameraMove _cameraMove;
 
         private void Start()
         {
@@ -48,6 +50,8 @@ namespace CaveGame
 
         private IEnumerator SpawnWaves()
         {
+            Debug.Log("Spawning waves...");
+            _cameraMove.MoveCameraForWaveCombat();
             _leaveButton.SetActive(false);
 
             _waveScalingStats.WaveRoundCount++;

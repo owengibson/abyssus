@@ -10,27 +10,40 @@ namespace CaveGame
         [SerializeField] private float _nonWaveCameraSize;
         [SerializeField] private float _waveCameraSize;
 
-        private void Start()
+        public void MoveCameraForWaveCombat()
         {
-            if (GameStats.Instance.Stats.CavesVisited % 2 == 0 && GameStats.Instance.Stats.CavesVisited != 0)
+            Debug.Log("Moving camera...");
+            //GetComponent<Camera>().DOOrthoSize(_waveCameraSize, 2f);
+            //transform.DOMoveY(3.2f, 2f);
+            Camera camera = GetComponent<Camera>();
+            StartCoroutine(MoveOrthoSize(camera, camera.orthographicSize, _waveCameraSize, 2f));
+            StartCoroutine(MoveCameraY(camera.transform, camera.transform.position.y, 3.2f, 2f));
+        }
+
+        private IEnumerator MoveOrthoSize(Camera camera, float start, float end, float time)
+        {
+            float counter = 0f;
+
+            while (counter < time)
             {
-                MoveCameraForWaveCombat();
+                counter += Time.deltaTime;
+                camera.orthographicSize = Mathf.Lerp(start, end, counter / time);
+
+                yield return null;
             }
         }
 
-        private void MoveCameraForWaveCombat()
+        private IEnumerator MoveCameraY(Transform camera, float start, float end, float time)
         {
-            GetComponent<Camera>().DOOrthoSize(_waveCameraSize, 2f);
-            transform.DOMoveY(3.2f, 2f);
-        }
+            float counter = 0f;
 
-        private void OnEnable()
-        {
-            EventManager.OnTutorialTurretEntered += MoveCameraForWaveCombat;
-        }
-        private void OnDisable()
-        {
-            EventManager.OnTutorialTurretEntered -= MoveCameraForWaveCombat;
+            while (counter < time)
+            {
+                counter += Time.deltaTime;
+                camera.position = Vector2.Lerp(new Vector2(camera.position.x, start), new Vector2(camera.position.x, end), counter / time);
+
+                yield return null;
+            }
         }
     }
 }
