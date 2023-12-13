@@ -44,7 +44,10 @@ namespace CaveGame
             }
             else if (collision.gameObject.CompareTag("Ground"))
             {
-                _hitWallSfx.Play();
+                if (!_hitWallSfx.isPlaying)
+                {
+                    _hitWallSfx.Play();
+                }
                 if (!_canDespawn) return;
                 _canDamage = false;
                 _spriteRenderer.enabled = false;

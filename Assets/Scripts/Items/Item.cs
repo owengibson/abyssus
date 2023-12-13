@@ -8,6 +8,7 @@ namespace CaveGame
     public class Item : MonoBehaviour
     {
         public ItemSO p_Item;
+        [SerializeField] private AudioSource _pickupSFX;
 
         /*public void OnPointerClick(PointerEventData eventData)
         {
@@ -19,6 +20,7 @@ namespace CaveGame
         {
             if (!collision.CompareTag("Player")) return;
 
+            _pickupSFX.Play();
             EventManager.OnItemCollided?.Invoke(this);
         }
     }
